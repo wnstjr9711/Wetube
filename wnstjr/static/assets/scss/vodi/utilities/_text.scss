@@ -1,0 +1,474 @@
+/*------------------------------------
+  Typography
+------------------------------------*/
+.font-weight-medium {
+    font-weight: $font-weight-medium !important;
+}
+
+.font-weight-semi-bold {
+    font-weight: $font-weight-semi-bold !important;
+}
+
+.font-secondary {
+    font-family: $font-family-secondary;
+}
+
+.text-inherit {
+  color: inherit;
+}
+
+.text-cap {
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing;
+}
+
+.text-lh-sm {
+  line-height: $text-lh-sm;
+}
+
+.text-lh-md {
+  line-height: $text-lh-md;
+}
+
+.text-lh-lg {
+  line-height: $text-lh-lg;
+}
+
+.font-size-1rem {
+    font-size: 1rem;
+}
+
+.font-size-1 {
+  font-size: $font-size-1;
+}
+
+.font-size-2 {
+  font-size: $font-size-2;
+}
+
+.font-size-3 {
+  font-size: $font-size-3;
+}
+
+.font-size-4 {
+  font-size: $font-size-4;
+}
+
+.font-size-5 {
+  font-size: $font-size-5;
+}
+
+.font-size-6 {
+  font-size: $font-size-6; //72px
+}
+
+.font-size-22 {
+  font-size: 1.375rem;
+}
+
+.font-size-10 {
+  font-size: 0.625rem;
+}
+
+.font-size-11 {
+    font-size: 0.688rem;
+}
+
+.font-size-12 {
+    font-size: 0.75rem; //12px
+}
+
+.font-size-13 {
+    font-size: 0.812rem; //13px
+}
+
+.font-size-14 {
+    font-size: 0.875rem; //14px
+}
+
+.font-size-15 {
+  font-size: 0.938rem;  //15px
+}
+
+.font-size-16 {
+    font-size: 1rem;  //16px
+}
+
+.font-size-16-r {
+    font-size: 0.75rem; //12px
+
+    @include media-breakpoint-up(md) {
+        font-size: 1rem;  //16px
+    }
+}
+
+.font-size-17 {
+    font-size: 1.063rem;  //17px
+}
+
+.font-size-18 {
+    font-size: 1.125rem; //18px
+}
+
+.font-size-18-r {
+    font-size: 0.875rem; //14px
+
+    @include media-breakpoint-up(md) {
+        font-size: 1.125rem; //18px
+    }
+}
+
+.font-size-19 {
+    font-size: 1.187rem; //19px
+}
+
+.font-size-20 {
+    font-size: 1.25rem;  //20px
+}
+
+.font-size-21 {
+    font-size: 1.313rem;  //21px
+}
+
+.font-size-21-r {
+    font-size: 1.125rem; //18px
+
+    @include media-breakpoint-up(md) {
+        font-size: 1.313rem;  //21px
+    }
+}
+
+.font-size-23-r {
+    font-size: 1.125rem; //18px
+
+    @include media-breakpoint-up(md) {
+        font-size: 1.437rem;  //23px
+    }
+}
+
+.font-size-24 {
+    font-size: 1.5rem;  //24px
+}
+
+.font-size-26 {
+    font-size: 1.625rem;  //26px
+}
+
+.font-size-26-r {
+    font-size: 0.875rem; //14px
+
+    @include media-breakpoint-up(md) {
+        font-size: 1.625rem;  //26px
+    }
+}
+
+.font-size-28-r {
+    font-size: 0.875rem; //14px
+
+    @include media-breakpoint-up(md) {
+        font-size: 1.75rem;  //28px
+    }
+}
+
+.font-size-30 {
+  font-size: 1.875rem;  //30px
+}
+
+.font-size-30-r {
+  font-size: 1.25rem;  //20px
+
+    @include media-breakpoint-up(md) {
+        font-size: 1.875rem;  //30px
+    }
+}
+
+.font-size-34 {
+    font-size: 2.125rem;  //34px
+}
+
+
+.font-size-36 {
+    font-size: 2.25rem;  //36px
+}
+
+.font-size-42 {
+    font-size: 2.625rem;  //42px
+}
+
+.font-size-65 {
+    font-size: 4.063rem;  //65px
+}
+
+
+.display-5 {
+  @include font-size($display5-size);
+  font-weight: $display4-weight;
+  line-height: $display-line-height;
+}
+
+.display-6 {
+  @include font-size($display6-size);
+  font-weight: $display4-weight;
+  line-height: $display-line-height;
+}
+
+.display-7 {
+  @include font-size($display7-size);
+  font-weight: $display4-weight;
+  line-height: $display-line-height;
+}
+
+.display-8 {
+  @include font-size($display8-size);
+  font-weight: $display4-weight;
+  line-height: $display-line-height;
+}
+
+.display-9 {
+  @include font-size($display9-size);
+  font-weight: $display4-weight;
+  line-height: $display-line-height;
+}
+
+.display-10 {
+  @include font-size($display10-size);
+  font-weight: $display4-weight;
+  line-height: $display-line-height;
+}
+
+.display-11 {
+  @include font-size($display11-size);
+  line-height: $display-line-height;
+}
+
+.display-12 {
+  @include font-size($display12-size);
+  font-weight: $display4-weight;
+}
+
+.display-13 {
+  @include font-size($display13-size);
+  line-height: $display-line-height;
+}
+
+.display-14 {
+  @include font-size($display14-size);
+  line-height: $display-line-height;
+}
+
+.display-15 {
+  @include font-size($display15-size);
+  line-height: $display-line-height;
+}
+
+.display-16 {
+  @include font-size($display15-size);
+  line-height: $display-line-height;
+
+    @include media-breakpoint-down(lg) {
+        font-size: calc(2.1875rem + 5.25vw);
+    }
+}
+
+.display-17 {
+  @include font-size($display17-size);
+  line-height: $display-line-height;
+}
+
+
+.text-underline {
+    text-decoration: underline !important;
+}
+
+.text-lh-1 {
+    line-height: 1;
+}
+.text-lh-1dot1 {
+    line-height: 1.1;
+}
+
+.text-lh-1dot18 {
+    line-height: 1.18;
+}
+
+.text-lh-1dot25 {
+    line-height: 1.25;
+}
+
+.text-lh-1dot3 {
+    line-height: 1.3;
+}
+
+.text-lh-1dot4 {
+    line-height: 1.4;
+}
+
+.line-height-md {
+    line-height: $line-height-md; //1.6
+}
+
+.line-height-lg {
+    line-height: $line-height-lg; //1.8
+}
+
+.line-height-xl {
+    line-height: $line-height-xl; //2
+}
+
+.title-dash::before {
+    content: '';
+    width: 48px;
+    background-color: #a8a8a83d;
+    height: 1px;
+    top: 0;
+    margin-bottom: 23px;
+    display: block;
+}
+
+.overflow-md-hidden {
+    @include media-breakpoint-up(md) {
+        overflow: hidden !important;
+    }
+}
+
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-5 {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.h-btn-show {
+    @include media-breakpoint-up(xl) {
+        .btn-show {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease-in-out;
+        }
+
+        &:hover {
+            .row {
+                background-color: #fbfbfb;
+            }
+
+            .btn-show {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            i {
+                color: $primary;
+            }
+
+            .rating-number {
+                span {
+                    color: $dark !important;
+                }
+            }
+        }
+    }
+
+
+    &.dark {
+
+        i {
+            color: #303544;
+        }
+
+        &:hover {
+            .row {
+                background: linear-gradient(135deg,#212635 5%,rgba(33,38,53,0.57) 40%,rgba(160,162,168,0) 60%,rgba(255,255,255,0) 100%);
+            }
+
+            i {
+                color: $primary;
+            }
+        }
+
+    }
+
+    &.v1 {
+        &:hover {
+            .row {
+                background-color: transparent !important;
+            }
+        }
+    }
+}
+
+.description-title {
+    &::after {
+        background: #323846;
+        color: $primary;
+        content: "+";
+        display: inline-block;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        font-size: 24px;
+        line-height: 34px;
+        text-align: center;
+        margin-left: 18px;
+        font-weight: 700;
+    }
+}
+
+.episode__player--prev-episode {
+    .episode__player--prev-episode__link-left {
+
+        &:before {
+            content: "";
+            width: 84px;
+            height: 121px;
+            display: inline-block;
+            background-repeat: no-repeat;
+            background: url(data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iODRweCIgaGVpZ2h0PSIxMjBweCI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBmaWxsPSJyZ2IoMTEzLCAxMjcsIDE0MCkiIGQ9Ik02MS45ODgsMTE4LjU3OSBMNjAuNTg0LDExOS45ODggTDAuMDEyLDU5LjIxMCBMMS40MTYsNTcuODAxIEwxLjcxMyw1OC4wOTggTDYwLjU5MCwwLjAwNiBMNjEuOTgyLDEuNDI2IEwzLjExNyw1OS41MDggTDYxLjk4OCwxMTguNTc5IFoiLz48L3N2Zz4=);
+        }
+
+        &:hover {
+            &:before {
+                background: url(data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iODRweCIgaGVpZ2h0PSIxMjBweCI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiAgZmlsbD0icmdiKDI1NSwgMjU1LCAyNTUpIiBkPSJNNjEuOTg4LDExOC41NzkgTDYwLjU4NCwxMTkuOTg4IEwwLjAxMiw1OS4yMTAgTDEuNDE2LDU3LjgwMSBMMS43MTMsNTguMDk5IEw2MC41OTAsMC4wMDYgTDYxLjk4MiwxLjQyNiBMMy4xMTcsNTkuNTA4IEw2MS45ODgsMTE4LjU3OSBaIi8+PC9zdmc+);
+            }
+
+            span {
+                color: $primary !important;
+            }
+        }
+    }
+
+    .episode__player--prev-episode__link-right {
+
+        &:after {
+            content: "";
+            width: 75px;
+            height: 121px;
+            display: inline-block;
+            background-repeat: no-repeat;
+            background: url(data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNzdweCIgaGVpZ2h0PSIxMjFweCI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiAgZmlsbD0icmdiKDExMywgMTI3LCAxNDApIiBkPSJNNjIuNzA3LDU5LjcwNyBMMS43MDcsMTIwLjcwNyBMMC4yOTMsMTE5LjI5MyBMNTkuNTgwLDYwLjAwNiBMMC4yOTksMS43MTMgTDEuNzAxLDAuMjg3IEw2MC45OTQsNTguNTkyIEw2MS4yOTMsNTguMjkzIEw2Mi43MDcsNTkuNzA3IFoiLz48L3N2Zz4=);
+        }
+
+        &:hover {
+            &:after {
+                background: url(data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNzdweCIgaGVpZ2h0PSIxMjFweCI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiAgZmlsbD0icmdiKDI1NSwgMjU1LCAyNTUpIiBkPSJNNjIuNzA3LDU5LjcwNyBMMS43MDcsMTIwLjcwNyBMMC4yOTMsMTE5LjI5MyBMNTkuNTgwLDYwLjAwNiBMMC4yOTksMS43MTMgTDEuNzAxLDAuMjg3IEw2MC45OTQsNTguNTkyIEw2MS4yOTMsNTguMjkzIEw2Mi43MDcsNTkuNzA3IFoiLz48L3N2Zz4=);
+            }
+
+            span {
+                color: $primary !important;
+            }
+        }
+    }
+}

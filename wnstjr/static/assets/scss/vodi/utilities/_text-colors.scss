@@ -1,0 +1,220 @@
+/*------------------------------------
+Text Colors
+------------------------------------*/
+
+.text-white-70 {
+	color: $white-color-70;
+
+	&[href]:hover {
+		color: $white-color-hover;
+	}
+}
+
+a:hover {
+	.text-hover-primary {
+		color: $link-hover-color !important;
+	}
+}
+
+.h-w-primary {
+	color: $white !important;
+
+	&:hover {
+		color: $primary !important;
+	}
+}
+
+.h-g-primary {
+	color: $gray-1300;
+
+	&:hover {
+		color: $primary;
+	}
+}
+
+.h-b-primary {
+	color: $gray-700;
+
+	&:hover {
+		color: $primary;
+	}
+}
+
+.h-fw-bold {
+	&:hover {
+		font-weight: bold;
+	}
+}
+
+.h-g1-primary {
+	color: $gray-4400;
+
+	&:hover {
+		color: $primary;
+	}
+}
+
+.h-g-white {
+	color: $gray-1300;
+
+	&:hover {
+		color: $white;
+	}
+}
+
+.h-g-white-1 {
+	color: $gray-6400;
+
+	&:hover {
+		color: $white;
+	}
+}
+
+.hover-white {
+	color: $gray-6500;
+
+	&:hover {
+		color: $white;
+	}
+}
+
+.h-g-dark {
+	color: $gray-1300;
+
+	&:hover {
+		color: $gray-900;
+	}
+}
+
+.h-d-black {
+	color: $dark;
+
+	&:hover {
+		color: $black;
+	}
+}
+
+.text-gray-700 {
+	color: $gray-700;
+}
+
+.text-gray-1300 {
+	color: $gray-1300 !important;
+}
+
+.text-gray-1800 {
+	color: $gray-1800;
+}
+
+.text-gray-2100 {
+	color: $gray-2100;
+}
+
+.text-gray-2900 {
+	color: $gray-2900;
+}
+
+.text-gray-3700 {
+	color: $gray-3700;
+}
+
+.text-gray-4200 {
+	color: $gray-4200;
+}
+
+.text-gray-4700 {
+	color: $gray-4700;
+}
+
+.text-red-3 {
+	color: $red-3;
+
+	&:hover {
+		color: $red-2;
+	}
+}
+
+.text-gray-3200 {
+	color: $gray-3200;
+}
+
+.text-primary-light {
+	color: lighten($primary, 18%);
+}
+
+.text-gray-3500 {
+	color: $gray-3500;
+}
+
+.text-gray-5000 {
+	color: $gray-5000;
+}
+
+.text-gray-5200 {
+	color: $gray-5200;
+}
+
+.text-gray-5400 {
+	color: $gray-5400;
+}
+
+.text-gray-5500 {
+	color: $gray-5500;
+}
+
+.text-gray-5700 {
+	color: $gray-5700;
+}
+
+.text-gray-7000 {
+	color: $gray-7000;
+}
+
+.text-gray-7100 {
+	color: $gray-7100;
+}
+
+.text-gray-5900 {
+	color: $gray-5900;
+}
+
+.text-gray-6000 {
+	color: $gray-6000;
+}
+
+.text-gray-6100 {
+	color: $gray-6100;
+}
+
+.text-gray-6200 {
+	color: $gray-6200;
+}
+
+.text-gray-6600 {
+	color: $gray-6600 !important;
+}
+
+.text-gray-6800 {
+	color: $gray-6800 !important;
+}
+
+.text-gray-6810 {
+	color: $gray-6810 !important;
+}
+
+
+.hover-s-color {
+	&:hover {
+		span {
+			color: $gray-900;
+		}
+	}
+}
+
+
+.h-color-white {
+	&:hover {
+		color: $white;
+		font-weight: $font-weight-bold;
+	}
+}

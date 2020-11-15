@@ -4,7 +4,7 @@ import pymysql
 app = Flask(__name__)
 
 
-@app.route('/')
+@app.route('/wnstjr')
 def hello_world():
     return render_template('wnstjr.html', data1='김준석', data2='용산', data3=['연희', '연남'])
 
@@ -25,9 +25,14 @@ def show_db():
     return result
 
 
-@app.route('/index')
-def index():
-    return render_template('index.html')
+@app.route('/')
+def home():
+    return render_template('html/home/index.html')
+
+
+@app.route('/movies')
+def movie():
+    return render_template('html/single-video/single-video-v1.html')
 
 
 if __name__ == '__main__':

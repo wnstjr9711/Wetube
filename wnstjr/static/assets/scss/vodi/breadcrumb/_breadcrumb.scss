@@ -1,0 +1,30 @@
+/*------------------------------------
+  Breadcrumb
+------------------------------------*/
+
+.breadcrumb-no-gutter {
+  padding: 0;
+}
+
+.breadcrumb-item {
+    a {
+        color: $gray-1300;
+
+        &:hover {
+            color: $primary;
+        }
+    }
+}
+
+.breadcrumb.dark .breadcrumb-item {
+    + .breadcrumb-item {
+
+        &::before {
+            content: escape-svg($breadcrumb-divider-dark);
+        }
+    }
+
+    &.active {
+      color: $breadcrumb-active-color-dark;
+    }
+}
