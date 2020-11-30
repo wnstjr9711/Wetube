@@ -1,7 +1,10 @@
+from authlib.integrations.base_client import MismatchingStateError
 from flask import Flask, render_template, url_for, redirect, session
 from authlib.integrations.flask_client import OAuth
 import pymysql
 import requests
+import jwt
+
 import json
 
 app = Flask(__name__)
@@ -17,7 +20,7 @@ oauth.register(
     authorize_url='https://accounts.google.com/o/oauth2/auth',
     authorize_params=None,
     api_base_url='https://www.googleapis.com/oauth2/v1/',
-    client_kwargs={'scope': 'openid email profile'}
+    client_kwargs={'scope': 'openid email profile https://www.googleapis.com/auth/youtube'}
 )
 accessToken = list()
 
@@ -45,7 +48,6 @@ def show_db():
 
 @app.route('/')
 def home():
-    email = dict(session).get('email', None)
     if accessToken:
         print(accessToken)
     return render_template('html/home/index.html')
@@ -53,6 +55,8 @@ def home():
 
 @app.route('/login')
 def login():
+    if accessToken:
+        return redirect('/')
     google = oauth.create_client('google')
     redirect_uri = url_for('authorize', _external=True)
     return google.authorize_redirect(redirect_uri)
@@ -60,21 +64,23 @@ def login():
 
 @app.route('/logout')
 def logout():
-    for key in list(session.keys()):
-        session.pop(key)
-    accessToken.pop()
+    try:
+        for key in list(session.keys()):
+            session.pop(key)
+        accessToken.pop()
+    except IndexError:
+        return redirect('wnstjr')
     return redirect('/')
 
 
 @app.route('/authorize')
 def authorize():
-    google = oauth.create_client('google')
-    token = google.authorize_access_token()
-    resp = google.get('userinfo')
-    user_info = resp.json()
-    accessToken.append(token['access_token'])
-    # do something with the token and profile
-    session['email'] = user_info['email']
+    try:
+        google = oauth.create_client('google')
+        token = google.authorize_access_token()
+        accessToken.append(token['access_token'])
+    except MismatchingStateError:
+        login()
     return redirect('/')
 
 
@@ -91,6 +97,22 @@ def search():
 @app.route('/movies')
 def movie():
     return render_template('html/single-video/single-video-v1.html')
+
+
+@app.route('/playlist')
+def playlist():
+    try:
+        assert accessToken  # login 상태
+        url = 'https://www.googleapis.com/youtube/v3/playlists?access_token=' + accessToken[0]
+        req = requests.get(url, {'part': 'snippet', 'mine': 'true'})
+        print(req.json()['items'])
+        check = 'https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=' + accessToken[0]
+        if 'error' in requests.get(check).json(): #access token expired
+            return login()
+
+        return redirect('/')
+    except (IndexError, AssertionError):
+        return login()
 
 
 if __name__ == '__main__':
