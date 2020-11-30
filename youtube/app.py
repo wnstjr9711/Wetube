@@ -103,7 +103,7 @@ def movie():
 def playlist():
     try:
         assert accessToken  # login 상태
-        url = 'https://www.googleapis.com/youtube/v3/playlistsItems?access_token=' + accessToken[0]
+        url = 'https://www.googleapis.com/youtube/v3/playlists?access_token=' + accessToken[0]
         req = requests.get(url, {'part': 'snippet', 'mine': 'true'})
         print(req.json()['items'])
         check = 'https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=' + accessToken[0]
