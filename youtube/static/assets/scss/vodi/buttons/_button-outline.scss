@@ -1,0 +1,41 @@
+/*------------------------------------
+  Outline Button Styles
+------------------------------------*/
+
+.btn-outline-secondary {
+  border-color: $btn-outline-secondary-color;
+}
+
+.btn-outline-dark-primary {
+    border: 2px solid $gray-1400;
+    color: $white;
+    background-color: $gray-1100;
+
+    &:hover {
+        background-color: $primary;
+        border-color: $primary;
+        color: $white;
+    }
+}
+
+.btn-outline-white {
+    color: $white;
+    border: 2px solid $white;
+
+    &:hover {
+        color: $gray-900;
+        background-color: $white;
+    }
+}
+
+.btn-outline-1 {
+    background-color: $white;
+    color: #717376;
+    border: 2px solid #e8e8e8;
+
+    &:hover {
+        color: $white;
+        background-color: $primary;
+        border: 2px solid $primary;
+    }
+}

@@ -1,0 +1,147 @@
+/*------------------------------------
+  Pagination
+------------------------------------*/
+
+.page-link {
+  cursor: pointer;
+	text-align: center;
+	min-width: $pagination-min-width;
+}
+
+
+
+.page-item {
+	margin-left: $pagination-margin-x;
+	margin-right: $pagination-margin-x;
+
+  .page-link {
+    @include border-left-radius($pagination-page-link-border-radius);
+  }
+
+  .page-link {
+    @include border-right-radius($pagination-page-link-border-radius);
+  }
+}
+
+/* Sizes */
+.pagination-sm {
+  .page-link {
+    @include border-radius($pagination-sm-page-link-border-radius);
+  }
+}
+
+.pagination-lg {
+  .page-link {
+    @include border-radius($pagination-lg-page-link-border-radius);
+  }
+}
+
+.custom_pagination {
+
+    .page-item:not(:last-child) {
+
+        &.active {
+          .page-link {
+            background-color: $primary;
+            color: $white;
+            font-weight: bold;
+
+            &:hover {
+              background-color: $primary;
+              color: $white;
+            }
+          }
+        }
+
+        .page-link {
+          border-radius: 3px !important;
+          color: $gray-1300;
+          font-family: $font-family-secondary;
+          font-weight: normal;
+          font-size: 14px;
+          background-color: $gray-1000;
+
+            &:hover {
+                color: #0056b3;
+                background-color: #e9ecef;
+                border-color: #dee2e6;
+            }
+        }
+    }
+
+    .page-item:last-child {
+        .page-link {
+          color: $gray-1300;
+          background-color: transparent;
+        }
+    }
+}
+
+.custom-pagination-dark {
+
+    .page-item:not(:last-child) {
+
+        &.active {
+          .page-link {
+            font-weight: bold;
+            background-color: $primary;
+            color: $dark;
+
+            &:hover {
+              background-color: $primary;
+              color: $dark;
+            }
+          }
+        }
+
+        .page-link {
+          border-radius: 3px !important;
+          color: $gray-1800;
+          font-family: $font-family-secondary;
+          font-weight: normal;
+          font-size: 14px;
+          background-color: $gray-3800;
+
+            &:hover {
+                color: $gray-1800;
+                background-color: $gray-3800;
+                border-color: $gray-3800;
+            }
+        }
+    }
+
+    .page-item:last-child {
+        .page-link {
+          color: $gray-1800;
+          background-color: transparent;
+        }
+    }   
+}
+
+.custom-pagination-v1 {
+
+    font-family: $font-family-secondary;
+
+    .page-item {
+
+        &.active {
+            .page-link {
+                color: $white;
+                background-color: $primary;
+                font-weight: $font-weight-bold;
+            }
+
+        }
+
+        .page-link {
+            color: $gray-1300;
+            background-color: $gray-1000;
+            border-radius: 2px;
+
+            &:hover {
+                background-color: #e9ecef;
+                color: #0056b3;
+            }
+        }
+    }
+}

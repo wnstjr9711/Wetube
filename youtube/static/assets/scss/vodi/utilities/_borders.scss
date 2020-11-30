@@ -1,0 +1,168 @@
+/*------------------------------------
+  Borders-radius
+------------------------------------*/
+
+// Pseudo options
+.rounded-pseudo {
+	@include border-radius($border-radius);
+
+	&::before,
+	&::after {
+		@include border-radius($border-radius);
+	}
+}
+
+
+.rounded-3 {
+  border-radius: 3px;
+}
+
+.border-radius-sm {
+  @include border-radius($border-radius-sm);
+}
+
+/*------------------------------------
+  Borders
+------------------------------------*/
+
+.border-dashed {
+	border: $border-width dashed $border-color;
+}
+
+.border-2 {
+	border-width: $border-width * 2 !important;
+}
+
+.border-3 {
+	border-width: $border-width * 3 !important;
+}
+
+.border-md-right {
+  @include media-breakpoint-up(md) {
+    border-right: 1px solid $gray-3600;
+  }
+  &-dark {
+    @include media-breakpoint-up(md) {
+      border-right: 1px solid $gray-3800;
+    }
+  }
+}
+
+.border-w-lg-d-0 {
+	@include media-breakpoint-down(lg) {
+		border-width: 0 !important;
+	}
+}
+
+/*------------------------------------
+  Borders-color
+------------------------------------*/
+
+.border-g-1200-op {
+	border-color: rgba($gray-1200, .2) !important;
+}
+
+.border-gray-1400 {
+	border-color: $gray-1400 !important;
+}
+
+.border-gray-1300 {
+	border-color: $gray-1300 !important;
+}
+
+.border-gray-3200 {
+	border-color: $gray-3200 !important;
+}
+
+.border-gray-3300 {
+	border-color: $gray-3300 !important;
+}
+
+.border-gray-3600 {
+	border-color: $gray-3600 !important;
+}
+
+.border-gray-3700 {
+  border-color: $gray-3700 !important;
+}
+
+.border-gray-3800 {
+  border-color: $gray-3800 !important;
+}
+
+.border-gray-3900 {
+  border-color: $gray-3900 !important;
+}
+
+.border-gray-4100 {
+	border-color: $gray-4100 !important;
+}
+
+.border-gray-4600 {
+	border-color: $gray-4600 !important;
+}
+
+.border-gray-4800 {
+	border-color: $gray-4800 !important;
+}
+
+.border-gray-5300 {
+  border-color: $gray-5300 !important;
+}
+
+.border-gray-5400 {
+  border-color: $gray-5400 !important;
+}
+
+.border-gray-5600 {
+  border-color: $gray-5600 !important;
+}
+
+.border-transparent {
+	border-color: transparent;
+}
+
+.border-gray-5800 {
+  border-color: $gray-5800 !important;
+}
+
+.border-gray-6300 {
+  border-color: $gray-6300 !important;
+}
+
+.border-gray-6830 {
+  border-color: $gray-6830 !important;
+}
+
+.border-white-5 {
+  border: 5px solid $white;
+}
+
+.home-section {
+
+  .home-section__header {
+
+    &::before {
+      content: " ";
+      width: 48px;
+      background-color: #a8a8a83d;
+      height: 1px;
+      top: 0;
+      display: block;
+      margin-bottom: 23px;
+    }
+  }
+}
+
+.h-white {
+    &:hover {
+
+        .border-rounded {
+            border-color: $white !important;
+        }
+
+        i {
+            color: $white;
+        }
+    }
+}

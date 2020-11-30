@@ -1,0 +1,104 @@
+/*------------------------------------
+Slick
+------------------------------------*/
+
+.slick {
+	position: relative;
+
+	&__tab {
+		.tab-pane:not(.active) {
+			display: block !important;
+			height: 0 !important;
+			overflow: hidden;
+			padding: 0 !important;
+		}
+
+		.tab-pane.active {
+			height: auto !important;
+		}
+	}
+}
+
+.slick-vertical .slick-slide {
+	border-width: 0;
+}
+
+// Disable transform effect
+.slick-transform-off {
+	&.slick-transform-off .slick-track {
+		transform: none !important;
+	}
+}
+
+// Thumb Progress
+.slick-thumb-progress {
+	width: 110%;
+	height: 110%;
+	@include content-centered;
+}
+
+// Mode Right
+.slick-center-mode-right {
+	margin-right: $slick-center-mode-right !important;
+
+	&-offset {
+		.draggable {
+			padding-right: $slick-center-mode-right-offset-padding-x;
+		}
+	}
+}
+
+.slider-m-0 {
+	@include media-breakpoint-up(xl) {
+		.slick-track {
+			margin: 0 !important;
+			width: 100% !important;
+		}
+
+		.slick-slide {
+			width: 204px !important;
+		}
+	}
+}
+
+.slider-gradient {
+	position: relative;
+
+	&::after {
+		content: "";
+		position: absolute;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		height: 100px;
+		background: linear-gradient(to bottom, hsla(0,0%,90%,0) 11%,hsla(0,2%,89%,0) 12%,hsla(224, 28%, 10%, 1) 100%);
+	}
+}
+
+.u-slick-bordered {
+
+	&-primary {
+
+		.slick-current {
+
+			.thumb-img {
+
+				&:before {
+					position: absolute;
+					content: "";
+					width: 10px;
+					height: 10px;
+					left: 50%;
+					border-radius: 2px;
+					z-index: -1;
+					top: -4px;
+					background-color: $primary;
+					transform: rotate(45deg);
+				}
+
+				img {
+					border: 1px solid $primary;
+				}
+			}
+	}	}
+}
