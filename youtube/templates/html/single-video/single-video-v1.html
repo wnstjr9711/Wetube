@@ -719,6 +719,16 @@
                 </div>
 
                 <div class="col-md-4 col-xl-3">
+                    <script async src="//client.uchat.io/uchat.js"></script>
+                    <u-chat room='test201116' >
+                        <script>U=window.U=window.U||{},U.events=U.events||[],U.chat=function(n){return{on:function(e,t){U.events.push([n,e,t])},off:function(e){for(var t=U.events.length;t>0;)U.events[--t][0]==n&&U.events[t][1]==e&&U.events.splice(t,1)}}};</script>
+                        <script>
+                        U.chat('*').on('after.join', function(room, data){
+                        room.action.command('changeInfo', { 'nick': 'Xin' });
+                        });
+                        </script>
+                    </u-chat>
+                    <!--
                     <a href="../single-video/single-video-v2.html" class="d-block mb-3d">
                         <img class="img-fluid" src="https://placehold.it/350x277" alt="Image-Description">
                     </a>
@@ -785,7 +795,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
 

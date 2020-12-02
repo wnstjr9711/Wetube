@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:HG" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="de2accba-8210-436a-8da2-4ca7d147d8a7" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,23 +63,24 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/starganv2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Flask server.youtube">
-    <configuration name="youtube-api" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.app">
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="youtube" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\yujin\Anaconda3\python.exe" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/youtube-api.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -79,11 +104,9 @@
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.youtube-api" />
-      </list>
-    </recent_temporary>
+    <list>
+      <item itemvalue="Python.app" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -107,46 +130,73 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="586" y="198" key="#Inspections" timestamp="1605661368025">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="586" y="198" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1605661368025" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1605682264610">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="366" y="14" width="1089" height="810" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606873301186">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="366" y="44" width="1089" height="761" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1606726058696" />
+    <state x="2378" y="56" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1606724237947" />
+    <state x="366" y="14" width="1089" height="810" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1606873301186" />
+    <state x="592" y="218" key="FileChooserDialogImpl" timestamp="1606723809148">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="592" y="218" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1606723809148" />
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1605682264610" />
-    <state width="2517" height="403" key="GridCell.Tab.0.bottom" timestamp="1606651842000">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1515" height="62" key="GridCell.Tab.0.bottom" timestamp="1606874642342">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1515" height="220" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1606726721190" />
+    <state width="1515" height="62" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606874642342" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605671804744" />
     <state width="2517" height="403" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1606651842000" />
     <state width="2517" height="403" key="GridCell.Tab.0.bottom/219.1440.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1605880841191" />
-    <state width="2517" height="403" key="GridCell.Tab.0.center" timestamp="1606651842000">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1515" height="62" key="GridCell.Tab.0.center" timestamp="1606874642341">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1515" height="220" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1606726721190" />
+    <state width="1515" height="62" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606874642341" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605671804744" />
     <state width="2517" height="403" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1606651842000" />
     <state width="2517" height="403" key="GridCell.Tab.0.center/219.1440.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1605880841191" />
-    <state width="2517" height="403" key="GridCell.Tab.0.left" timestamp="1606651842000">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1515" height="62" key="GridCell.Tab.0.left" timestamp="1606874642341">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1515" height="220" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1606726721190" />
+    <state width="1515" height="62" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606874642341" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605671804744" />
     <state width="2517" height="403" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1606651842000" />
     <state width="2517" height="403" key="GridCell.Tab.0.left/219.1440.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1605880841191" />
-    <state width="2517" height="403" key="GridCell.Tab.0.right" timestamp="1606651842000">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1515" height="62" key="GridCell.Tab.0.right" timestamp="1606874642341">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1515" height="220" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1606726721190" />
+    <state width="1515" height="62" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606874642341" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605671804744" />
     <state width="2517" height="403" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1606651842000" />
     <state width="2517" height="403" key="GridCell.Tab.0.right/219.1440.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1605880841191" />
+    <state x="2101" y="153" width="981" height="708" key="SettingsEditor" timestamp="1606726098980">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2101" y="153" width="981" height="708" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1606726098980" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1605666027336">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605666027336" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/youtube$youtube_api.coverage" NAME="youtube-api Coverage Results" MODIFIED="1605663783524" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/youtube$youtube.coverage" NAME="youtube Coverage Results" MODIFIED="1606648127146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

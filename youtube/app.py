@@ -4,7 +4,6 @@ from authlib.integrations.flask_client import OAuth
 import pymysql
 import requests
 import jwt
-
 import json
 
 app = Flask(__name__)
