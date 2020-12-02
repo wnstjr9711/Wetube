@@ -82,8 +82,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Flask server.youtube" />
       <item itemvalue="Python.youtube-api" />
+      <item itemvalue="Flask server.youtube" />
     </list>
     <recent_temporary>
       <list>
