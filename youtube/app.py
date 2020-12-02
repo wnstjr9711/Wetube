@@ -93,8 +93,8 @@ def search():
     return redirect('/')
 
 
-@app.route('/movies')
-def movie():
+@app.route('/movies/<hash_url>')
+def movie(hash_url):
     return render_template('html/single-video/single-video-v1.html')
 
 
@@ -110,7 +110,6 @@ def playlist():
         check = 'https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=' + accessToken[0]
         if 'error' in requests.get(check).json(): #access token expired
             return login()
-
         return redirect('/')
     except (IndexError, AssertionError):
         return login()
