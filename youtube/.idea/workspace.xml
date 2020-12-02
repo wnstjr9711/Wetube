@@ -79,6 +79,10 @@
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.youtube-api" />
+      <item itemvalue="Flask server.youtube" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.youtube-api" />
