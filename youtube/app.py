@@ -3,13 +3,10 @@ from flask import Flask, render_template, url_for, redirect, session
 from authlib.integrations.flask_client import OAuth
 import pymysql
 import requests
-import jwt
-
 import json
 
 app = Flask(__name__)
 app.secret_key = 'random secret'
-
 oauth = OAuth(app)
 oauth.register(
     name='google',
@@ -23,6 +20,8 @@ oauth.register(
     client_kwargs={'scope': 'openid email profile https://www.googleapis.com/auth/youtube'}
 )
 accessToken = list()
+playlistID = list()
+apikey = 'AIzaSyB-9F9Z1JeKt_XH3RbowGsZUTkuLAH7pFs'
 
 
 @app.route('/wnstjr')
@@ -86,7 +85,7 @@ def authorize():
 
 @app.route('/search')
 def search():
-    url = 'https://www.googleapis.com/youtube/v3/search?key=AIzaSyB-9F9Z1JeKt_XH3RbowGsZUTkuLAH7pFs'
+    url = 'https://www.googleapis.com/youtube/v3/search?key=' + apikey
     req = requests.get(url, {'part': 'snippet', 'q': '파이썬'})
     if req.status_code == 200:
         for i in req.json()['items']:
@@ -105,7 +104,9 @@ def playlist():
         assert accessToken  # login 상태
         url = 'https://www.googleapis.com/youtube/v3/playlists?access_token=' + accessToken[0]
         req = requests.get(url, {'part': 'snippet', 'mine': 'true'})
-        print(req.json()['items'])
+        for i in req.json()['items']:
+            print(i['id'])
+            playlistID.append(i['id'])
         check = 'https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=' + accessToken[0]
         if 'error' in requests.get(check).json(): #access token expired
             return login()
@@ -115,5 +116,29 @@ def playlist():
         return login()
 
 
+@app.route('/playlistItems')
+def playlistItems():
+    url = 'https://www.googleapis.com/youtube/v3/playlistItems?key=' + apikey
+    req = requests.get(url, params={'part': 'snippet', 'playlistId': playlistID[1]})
+    print(req.json())
+    return redirect('/')
+
+
+@app.route('/playlistItems_insert')
+def playlistItems_insert():
+    url = 'https://www.googleapis.com/youtube/v3/playlistItems?access_token=' + accessToken[0]
+    req = requests.post(url, params={'part': 'snippet'}, data=json.dumps({'snippet': {'playlistId': 'PLAZnenWndLxcO81kB87Bw-Io4MpHaRPRt', 'resourceId': {'kind': 'youtube#video', 'videoId': 'EAyo3_zJj5c'}}}))
+    print(req.status_code)
+    return redirect('/')
+
+
+@app.route('/playlistItems_delete')
+def playlistItems_delete():
+    url = 'https://www.googleapis.com/youtube/v3/playlistItems?access_token=' + accessToken[0]
+    req = requests.delete(url, params={'id': 'UExBWm5lblduZEx4Y084MWtCODdCdy1JbzRNcEhhUlBSdC4yODlGNEE0NkRGMEEzMEQy'})
+    print(req.status_code)
+    return redirect('/')
+
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
