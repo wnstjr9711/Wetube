@@ -167,19 +167,28 @@
         <div class="container px-md-5">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../home/index.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Library</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                    <li class="breadcrumb-item"><a href="javascript:;" data-toggle="modal" data-target="#playlistModal">Playlist</a></li>
+                    {% for i in playlists %}
+                        {% if i['id'] == play %}
+                            <li class="breadcrumb-item">{{ i['snippet']['title']}} </li>
+                        {% endif %}
+                    {% endfor %}
                 </ol>
             </nav>
             <div class="row mb-4">
                 <div class="col-md-8 col-xl-9 mb-4">
                     <div class="position-relative min-h-270rem mb-2d mr-xl-3">
-                        <iframe class="position-absolute w-100 h-lg-down-100 position-xl-relative top-0 bottom-0 w-100" height="620" src="https://www.youtube.com/embed/YD4WnLB5q9s" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        {% if play %}
+                        <iframe class="position-absolute w-100 h-lg-down-100 position-xl-relative top-0 bottom-0 w-100" height="620" src="https://www.youtube.com/embed/{{ items['snippet']['resourceId']['videoId'] }}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        {% else %}
+                        <div class="position-relative min-h-270rem mb-2d mr-xl-3">
+                            <h5 class="font-size-21 text-dark font-weight-medium" align="middle"><a href="javascript:;" data-toggle="modal" data-target="#playlistModal">Select a playlist</a></h5>
+                        </div>
+                        {% endif %}
                     </div>
                     <div class="mr-xl-3">
                         <div class="mb-2">
-                            <h5 class="font-size-21 text-dark font-weight-medium">Marin Retires Hurt, Saina Wins</h5>
+                            <h5 class="font-size-21 text-dark font-weight-medium">제목</h5>
                         </div>
 
                         <div class="font-size-12 mb-4">
@@ -475,24 +484,24 @@
             <div class="modal-content">
                 <button type="button" class="close position-absolute top-0 right-0 z-index-2 mt-3 mr-3" data-dismiss="modal" aria-label="Close">
                     <svg aria-hidden="true" class="mb-0" width="14" height="14" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="currentColor" d="M11.5,9.5l5-5c0.2-0.2,0.2-0.6-0.1-0.9l-1-1c-0.3-0.3-0.7-0.3-0.9-0.1l-5,5l-5-5C4.3,2.3,3.9,2.4,3.6,2.6l-1,1 C2.4,3.9,2.3,4.3,2.5,4.5l5,5l-5,5c-0.2,0.2-0.2,0.6,0.1,0.9l1,1c0.3,0.3,0.7,0.3,0.9,0.1l5-5l5,5c0.2,0.2,0.6,0.2,0.9-0.1l1-1 c0.3-0.3,0.3-0.7,0.1-0.9L11.5,9.5z"/>
+                        <path fill="currentColor" d="M11.5,9.5l5-5c0.2-0.2,0.2-0.6-0.1-0.9l-1-1c-0.3-0.3-0.7-0.3-0.9-0.1l-5,5l-5-5C4.3,2.3,3.9,2.4,3.6,2.6l-1,1 C2.4,3.9,2.3,4.3,2.5,4.5l5,5l-5,5c-0.2,0.2-0.2,0.6,0.1,0.9l1,1c0.3,0.3,0.7,0.3,0.9,0.1l5-5l5,5c0.2,0.2,0.6,0.2,0.9-0.1l1-1 c0.3-0.3,0.3-0.7,0.1-0.9L11.5,9.5z"></path>
                     </svg>
                 </button>
                 <!-- Body -->
                 <div class="modal-body">
-                    <form class="js-validate" action="/join" method="post">
-                            <!-- Input Group -->
-                            <div class="js-form-message mb-3">
-                                <label class="input-label">Insert Code</label>
-                                <div class="input-group input-group-sm mb-2">
-                                    <input type="text" class="form-control" name="code" id="joincode" placeholder="code" aria-label="code" required
-                                    data-msg="Your code is invalid. Please try again.">
-                                </div>
+                    <form class="js-validate" action="/join" method="POST">
+                        <!-- Input Group -->
+                        <div class="js-form-message mb-3">
+                            <label class="input-label">Insert Code</label>
+                            <div class="input-group input-group-sm mb-2">
+                                <input type="text" class="form-control" name="code" id="joincode" placeholder="code" aria-label="code" required
+                                data-msg="Your code is invalid. Please try again.">
                             </div>
-                            <!-- End Input Group -->
-                            <div class="mb-3">
-                                <button type="submit" class="btn btn-sm btn-primary btn-block">Join Room</button>
-                            </div>
+                        </div>
+                        <!-- End Input Group -->
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-sm btn-primary btn-block">Join Room</button>
+                        </div>
                     </form>
                 </div>
                 <!-- End Body -->
@@ -500,6 +509,42 @@
         </div>
     </div>
     <!-- End JoinCode Modal -->
+    <!-- playlist Modal -->
+    <div class="modal fade" id="playlistModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <button type="button" class="close position-absolute top-0 right-0 z-index-2 mt-3 mr-3" data-dismiss="modal" aria-label="Close">
+                    <svg aria-hidden="true" class="mb-0" width="14" height="14" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="currentColor" d="M11.5,9.5l5-5c0.2-0.2,0.2-0.6-0.1-0.9l-1-1c-0.3-0.3-0.7-0.3-0.9-0.1l-5,5l-5-5C4.3,2.3,3.9,2.4,3.6,2.6l-1,1 C2.4,3.9,2.3,4.3,2.5,4.5l5,5l-5,5c-0.2,0.2-0.2,0.6,0.1,0.9l1,1c0.3,0.3,0.7,0.3,0.9,0.1l5-5l5,5c0.2,0.2,0.6,0.2,0.9-0.1l1-1 c0.3-0.3,0.3-0.7,0.1-0.9L11.5,9.5z"></path>
+                    </svg>
+                </button>
+                <!-- Body -->
+                <div class="modal-body">
+                    <form class="js-validate" action={{ url_for('change_playlist') }} method="POST">
+                        <!-- Input Group -->
+                        <div class="js-form-message mb-3">
+                            <label class="input-label">Select Playlist</label>
+                            <div class="input-group input-group-sm mb-2">
+                                <input type="text" class="form-control" name="url" id="url" hidden value={{ request.url }}>
+                                <select name="playlist" id="playlist" required data-msg="Your code is invalid. Please try again.">
+                                    <option value="">select</option>
+                                    {% for i in playlists %}
+                                    <option value={{ i['id'] }}>{{ i['snippet']['title'] }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <!-- End Input Group -->
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-sm btn-primary btn-block">change playlist</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- End Body -->
+            </div>
+        </div>
+    </div>
+    <!-- End playlist Modal -->
 
     <!-- Sidebar Navigation -->
     <aside id="sidebarContent" class="hs-unfold-content sidebar sidebar-left off-canvas-menu">

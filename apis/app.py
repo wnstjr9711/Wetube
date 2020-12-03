@@ -42,10 +42,7 @@ room_created = dict()
 def home():
     if not accessToken:     # session cache clear
         session.clear()
-    if session:
-        return render_template('html/home/index.html', session=session, code=make_hash())
-    else:
-        return render_template('html/home/index.html')
+    return render_template('html/home/index.html', session=session, code=make_hash())
 
 
 @app.route('/movies/<hash_url>')
@@ -53,11 +50,16 @@ def movie(hash_url):
     if not session:     # 로그아웃 후 뒤로가기 금지
         return redirect('/')
     if hash_url in room_created:    # 기존 방 입장
+        if 'playlist' in session.keys():   # playlist 변경시
+            return render_template('html/single-video/single-video-v1.html', uchatroom=room_created[hash_url],
+                                   session=session, playlists=get_playlist(), play=session['playlist'],
+                                   items=get_playlistItems())
         return render_template('html/single-video/single-video-v1.html', uchatroom=room_created[hash_url], session=session)
     if available_uchat:        # 방생성
         u = available_uchat.pop()
         room_created[hash_url] = u
-        return render_template('html/single-video/single-video-v1.html', uchatroom=u, session=session, code=make_hash())
+        return render_template('html/single-video/single-video-v1.html', uchatroom=u, session=session, code=make_hash(),
+                               playlists=get_playlist(), play=None)
     else:                      # uchat 할당 불가
         return redirect(url_for('no_uchat'))
 
@@ -100,29 +102,22 @@ def search():
     return redirect('/')
 
 
-@app.route('/playlist')
-def playlist():
-    try:
-        assert accessToken  # login 상태
-        url = 'https://www.googleapis.com/youtube/v3/playlists?access_token=' + accessToken[0]
-        req = requests.get(url, {'part': 'snippet', 'mine': 'true'})
-        for i in req.json()['items']:
-            print(i['id'])
-            playlistID.append(i['id'])
-        check = 'https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=' + accessToken[0]
-        if 'error' in requests.get(check).json(): #access token expired
-            return login()
-        return redirect('/')
-    except (IndexError, AssertionError):
-        return login()
+def get_playlist():  # 사용자 playlist 가져오기(없는경우 임의로 생성)
+    url = 'https://www.googleapis.com/youtube/v3/playlists?access_token=' + accessToken[0]
+    req = requests.get(url, {'part': 'snippet', 'mine': 'true'})
+    result = req.json()['items']
+    if not result:
+        url2 = 'https://www.googleapis.com/youtube/v3/playlistItems?access_token=' + accessToken[0]
+        req2 = requests.post(url2, params={'part': 'snippet'}, data=json.dumps({'snippet': {
+            'title': session['email']}}))
+        result = req2.json()
+    return result
 
 
-@app.route('/playlistItems')
-def playlistItems():
-    url = 'https://www.googleapis.com/youtube/v3/playlistItems?key=' + apikey
-    req = requests.get(url, params={'part': 'snippet', 'playlistId': playlistID[1]})
-    print(req.json())
-    return redirect('/')
+def get_playlistItems():
+    url = 'https://www.googleapis.com/youtube/v3/playlistItems?access_token=' + accessToken[0]
+    req = requests.get(url, params={'part': 'snippet', 'playlistId': session['playlist']})
+    return req.json()['items'][0]
 
 
 @app.route('/playlistItems_insert')
@@ -147,14 +142,26 @@ def join_room():
     return redirect(url_for('movie', hash_url=code))
 
 
+@app.route('/change_playlist', methods=['GET', 'POST'])
+def change_playlist():
+    pl = request.form['playlist']  # 'id'
+    hash_url = request.form['url'].split('/')[-1]
+    session['playlist'] = pl
+    return redirect(url_for('movie', hash_url=hash_url))
+
+
 @app.route('/error_uchat')
 def no_uchat():
     return render_template('html/uchatunavailable.html')
 
 
 def make_hash():
-    hash_code = hashlib.sha256(accessToken[0].encode() + str(time.time()).encode())
-    return hash_code.hexdigest()
+    try:
+        assert accessToken
+        hash_code = hashlib.sha256(accessToken[0].encode() + str(time.time()).encode())
+        return hash_code.hexdigest()
+    except AssertionError:
+        return None
 
 
 if __name__ == '__main__':
