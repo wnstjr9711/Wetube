@@ -53,7 +53,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="JupyterTrust" id="88c93811-ef2d-4727-8e10-b488169b40f1" />
+  <component name="JupyterTrust" id="d5c43650-b9e9-4fbf-97bf-fe8bdb49f970" />
   <component name="ProjectId" id="1l8F5VcgyDcmRMedXxosqrUkEe9" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -64,7 +64,10 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -79,7 +82,7 @@
       <option name="targetType" value="PATH" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="C:\Users\wnstj\anaconda3\envs\youtube\python.exe" />
+      <option name="SDK_HOME" value="D:\KOREATECH\SeviceOriented\venv\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -107,6 +110,8 @@
       <workItem from="1607045768312" duration="13291000" />
       <workItem from="1607066429631" duration="10000" />
       <workItem from="1607068479072" duration="439000" />
+      <workItem from="1607080196290" duration="749000" />
+      <workItem from="1607081565804" duration="17000" />
     </task>
     <servers />
   </component>
@@ -126,14 +131,19 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="734" y="355" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606970857483">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="551" y="264" width="1092" height="716" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607081542120">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="551" y="264" width="1092" height="716" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607081542120" />
     <state x="734" y="355" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1606970857483" />
     <state x="1010" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606973249148">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1010" y="446" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1606973249148" />
+    <state x="415" y="357" key="FileChooserDialogImpl" timestamp="1607081581239">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="415" y="357" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1607081581239" />
     <state width="2517" height="565" key="GridCell.Tab.0.bottom" timestamp="1607068917335">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
