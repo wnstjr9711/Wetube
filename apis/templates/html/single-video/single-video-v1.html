@@ -179,62 +179,46 @@
                 <div class="col-md-8 col-xl-9 mb-4">
                     <div class="position-relative min-h-270rem mb-2d mr-xl-3">
                         {% if play %}
-                        <iframe class="position-absolute w-100 h-lg-down-100 position-xl-relative top-0 bottom-0 w-100" height="620" src="https://www.youtube.com/embed/{{ items['snippet']['resourceId']['videoId'] }}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            {% if not items %}
+                                <h5 class="font-size-21 text-dark font-weight-medium" align="middle">Add Videos</h5>
+                            {% else %}
+                                {% if not selected %}
+                                <iframe class="position-absolute w-100 h-lg-down-100 position-xl-relative top-0 bottom-0 w-100" height="620" src="https://www.youtube.com/embed/{{ items[0]['snippet']['resourceId']['videoId'] }}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                {% else %}
+                                <iframe class="position-absolute w-100 h-lg-down-100 position-xl-relative top-0 bottom-0 w-100" height="620" src="https://www.youtube.com/embed/{{ selected['snippet']['resourceId']['videoId'] }}" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                {% endif %}
+                            {% endif %}
                         {% else %}
                         <div class="position-relative min-h-270rem mb-2d mr-xl-3">
                             <h5 class="font-size-21 text-dark font-weight-medium" align="middle"><a href="javascript:;" data-toggle="modal" data-target="#playlistModal">Select a playlist</a></h5>
                         </div>
                         {% endif %}
                     </div>
+                    {% if items %}
                     <div class="mr-xl-3">
+                        {% if not selected %}
                         <div class="mb-2">
-                            <h5 class="font-size-21 text-dark font-weight-medium">제목</h5>
+                            <h5 class="font-size-21 text-dark font-weight-medium">{{ items[0]['snippet']['title'] }}</h5>
                         </div>
-
                         <div class="font-size-12 mb-4">
-                            <span class="d-inline-flex text-gray-1300 align-items-center mr-3">Published on March 4, 2020</span>
-                            <span class="d-inline-flex text-gray-1300 align-items-center mr-3"><i class="far fa-eye mr-1d"></i> 2.4K views</span>
+                            <span class="d-inline-flex text-gray-1300 align-items-center mr-3">{{ items[0]['snippet']['publishedAt'] }}</span>
                         </div>
-
-                        <div class="bg-gray-1000 rounded d-flex py-2d px-3 align-items-center mb-4">
-                            <!-- Unfold (Dropdown) -->
-                            <div class="hs-unfold">
-                                <a class="js-hs-unfold-invoker dropdown-nav-link dropdown-toggle remove h-g-primary font-size-14" href="javascript:;"
-                                data-hs-unfold-options='{
-                                    "target": "#basicDropdownClick-1"
-                                }'>+ Playlist</a>
-
-                                <div id="basicDropdownClick-1" class="hs-unfold-content dropdown-menu my-account-dropdown">
-                                    <a class="dropdown-item active h-g-primary" href="#">+ Create a playlist</a>
-                                </div>
-                            </div>
-                            <!-- End Unfold (Dropdown) -->
-
-                            <div class="ml-auto d-flex align-items-center text-gray-1300 font-size-12">
-                                <a href="#" class="h-g-primary mr-1d font-size-18"><i class="far fa-thumbs-up"></i></a>
-                                <span>13+</span>
-                            </div>
+                        {% else %}
+                            <div class="mb-2">
+                            <h5 class="font-size-21 text-dark font-weight-medium">{{ selected['snippet']['title'] }}</h5>
                         </div>
-
-                        <div class="collapse" id="collapseExample">
-                            <div class="card card-body shadow-none p-0 mb-2">
-                                <p>Saina Nehwal wins Indonesia Masters 2019 after Carolina Marin retires with injury.</p>
-                            </div>
+                        <div class="font-size-12 mb-4">
+                            <span class="d-inline-flex text-gray-1300 align-items-center mr-3">{{ selected['snippet']['publishedAt'] }}</span>
                         </div>
-
-                        <div>
-                            <a class="show-more-arrow font-size-14" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                Show more <i class="ml-1d fas fa-chevron-down font-size-10"></i>
-                            </a>
-                        </div>
-
+                        {% endif %}
                         <nav class="js-scroll-nav">
                             <div class="space-1 position-relative d-flex">
-                                <a class="nav-link mx-auto px-6 py-2d font-size-14 h-g1-primary z-index-2 border border-gray-3600 rounded-pill bg-white " href="#leave-comment"><i class="far fa-comment mr-2"></i> Leave a comment</a>
+                                <a class="nav-link mx-auto px-6 py-2d font-size-14 h-g1-primary z-index-2 border border-gray-3600 rounded-pill bg-white " href="#leave-comment"><i class="far fa-comment mr-2"></i>Search Videos</a>
                                 <div class="border-top content-centered w-100 border-gray-3600"></div>
                             </div>
                         </nav>
                     </div>
+                    {% endif %}
                 </div>
 
                 <div class="col-md-4 col-xl-3">
@@ -252,176 +236,30 @@
 
             <section class="mb-5">
                 <div class="d-flex align-items-center mb-4">
-                    <h2 class="font-size-18 font-weight-medium text-gray-700 mb-0">Related Videos</h2>
+                    <h2 class="font-size-18 font-weight-medium text-gray-700 mb-0">Videos in playlist</h2>
                     <div class="border-top col p-0 ml-3 border-gray-3600"></div>
                 </div>
                 <div class="row row-cols-2 row-cols-xl-5">
+                    {% for videos in items %}
                     <div class="col mb-3">
                         <div class="product">
                             <div class="product-image mb-2 pb-1">
-                                <a class="d-block position-relative stretched-link" href="../single-video/single-video-v2.html">
-                                    <img class="img-fluid" src="https://placehold.it/480x270" alt="Image-Description">
+                                <a class="d-block position-relative stretched-link" href={{ url_for('change_playlist', url=request.url, select=videos) }}>
+                                    <img class="img-fluid" src={{ videos['snippet']['thumbnails']['medium']['url'] }} alt="Image-Description">
                                 </a>
                             </div>
                             <h6 class="product-title font-size-1 font-weight-bold mb-0">
-                                <a href="../single-video/single-video-v2.html">Captain Marvel</a>
+                                <a href="아직안만듬">{{ videos['snippet']['title'] }}</a>
                             </h6>
-                            <div class="product-meta dot font-size-12 mb-1">
-                                <span class="d-inline-flex text-gray-1300">1K views</span>
-                                <span class="d-inline-flex text-gray-1300">1 year ago</span>
-                            </div>
                         </div>
                     </div>
-                    <div class="col mb-3">
-                        <div class="product">
-                            <div class="product-image mb-2 pb-1">
-                                <a class="d-block position-relative stretched-link" href="../single-video/single-video-v2.html">
-                                    <img class="img-fluid" src="https://placehold.it/480x270" alt="Image-Description">
-                                </a>
-                            </div>
-                            <h6 class="product-title font-size-1 font-weight-bold mb-0">
-                                <a href="../single-video/single-video-v2.html">Aladdin</a>
-                            </h6>
-                            <div class="product-meta dot font-size-12 mb-1">
-                                <span class="d-inline-flex text-gray-1300">24 views</span>
-                                <span class="d-inline-flex text-gray-1300">1 year ago</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-3">
-                        <div class="product">
-                            <div class="product-image mb-2 pb-1">
-                                <a class="d-block position-relative stretched-link" href="../single-video/single-video-v2.html">
-                                    <img class="img-fluid" src="https://placehold.it/480x270" alt="Image-Description">
-                                </a>
-                            </div>
-                            <h6 class="product-title font-size-1 font-weight-bold mb-0">
-                                <a href="../single-video/single-video-v2.html">Pet Sematary</a>
-                            </h6>
-                            <div class="product-meta dot font-size-12 mb-1">
-                                <span class="d-inline-flex text-gray-1300">454 views</span>
-                                <span class="d-inline-flex text-gray-1300">1 year ago</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-3">
-                        <div class="product">
-                            <div class="product-image mb-2 pb-1">
-                                <a class="d-block position-relative stretched-link" href="../single-video/single-video-v2.html">
-                                    <img class="img-fluid" src="https://placehold.it/480x270" alt="Image-Description">
-                                </a>
-                            </div>
-                            <h6 class="product-title font-size-1 font-weight-bold mb-0">
-                                <a href="../single-video/single-video-v2.html">Avengers: Endgame</a>
-                            </h6>
-                            <div class="product-meta dot font-size-12 mb-1">
-                                <span class="d-inline-flex text-gray-1300">54 views</span>
-                                <span class="d-inline-flex text-gray-1300">1 year ago</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-3">
-                        <div class="product">
-                            <div class="product-image mb-2 pb-1">
-                                <a class="d-block position-relative stretched-link" href="../single-video/single-video-v2.html">
-                                    <img class="img-fluid" src="https://placehold.it/480x270" alt="Image-Description">
-                                </a>
-                            </div>
-                            <h6 class="product-title font-size-1 font-weight-bold mb-0">
-                                <a href="../single-video/single-video-v2.html">Captain Marvel</a>
-                            </h6>
-                            <div class="product-meta dot font-size-12 mb-1">
-                                <span class="d-inline-flex text-gray-1300">54 views</span>
-                                <span class="d-inline-flex text-gray-1300">1 year ago</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-3">
-                        <div class="product">
-                            <div class="product-image mb-2 pb-1">
-                                <a class="d-block position-relative stretched-link" href="../single-video/single-video-v2.html">
-                                    <img class="img-fluid" src="https://placehold.it/480x270" alt="Image-Description">
-                                </a>
-                            </div>
-                            <h6 class="product-title font-size-1 font-weight-bold mb-0">
-                                <a href="../single-video/single-video-v2.html">Final: Malaysia Masters</a>
-                            </h6>
-                            <div class="product-meta dot font-size-12 mb-1">
-                                <span class="d-inline-flex text-gray-1300">32 views</span>
-                                <span class="d-inline-flex text-gray-1300">1 year ago</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-3">
-                        <div class="product">
-                            <div class="product-image mb-2 pb-1">
-                                <a class="d-block position-relative stretched-link" href="../single-video/single-video-v2.html">
-                                    <img class="img-fluid" src="https://placehold.it/480x270" alt="Image-Description">
-                                </a>
-                            </div>
-                            <h6 class="product-title font-size-1 font-weight-bold mb-0">
-                                <a href="../single-video/single-video-v2.html">BEST BASKETBALL VINES OF FEBRUARY 2019 | WEEK 2 | SAUCY HIGHLIGHTS!</a>
-                            </h6>
-                            <div class="product-meta dot font-size-12 mb-1">
-                                <span class="d-inline-flex text-gray-1300">454 views</span>
-                                <span class="d-inline-flex text-gray-1300">1 year ago</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-3">
-                        <div class="product">
-                            <div class="product-image mb-2 pb-1">
-                                <a class="d-block position-relative stretched-link" href="../single-video/single-video-v2.html">
-                                    <img class="img-fluid" src="https://placehold.it/480x270" alt="Image-Description">
-                                </a>
-                            </div>
-                            <h6 class="product-title font-size-1 font-weight-bold mb-0">
-                                <a href="../single-video/single-video-v2.html">Dhoni, India seal tense ODI series win</a>
-                            </h6>
-                            <div class="product-meta dot font-size-12 mb-1">
-                                <span class="d-inline-flex text-gray-1300">454 views</span>
-                                <span class="d-inline-flex text-gray-1300">1 year ago</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-3">
-                        <div class="product">
-                            <div class="product-image mb-2 pb-1">
-                                <a class="d-block position-relative stretched-link" href="../single-video/single-video-v2.html">
-                                    <img class="img-fluid" src="https://placehold.it/480x270" alt="Image-Description">
-                                </a>
-                            </div>
-                            <h6 class="product-title font-size-1 font-weight-bold mb-0">
-                                <a href="../single-video/single-video-v2.html">Saina Nehwal vs PV Sindhu — The Big Clash!</a>
-                            </h6>
-                            <div class="product-meta dot font-size-12 mb-1">
-                                <span class="d-inline-flex text-gray-1300">454 views</span>
-                                <span class="d-inline-flex text-gray-1300">1 year ago</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-3">
-                        <div class="product">
-                            <div class="product-image mb-2 pb-1">
-                                <a class="d-block position-relative stretched-link" href="../single-video/single-video-v2.html">
-                                    <img class="img-fluid" src="https://placehold.it/480x270" alt="Image-Description">
-                                </a>
-                            </div>
-                            <h6 class="product-title font-size-1 font-weight-bold mb-0">
-                                <a href="../single-video/single-video-v2.html">Men’s 100m at Athletics World Cup 2018</a>
-                            </h6>
-                            <div class="product-meta dot font-size-12 mb-1">
-                                <span class="d-inline-flex text-gray-1300">54 views</span>
-                                <span class="d-inline-flex text-gray-1300">1 year ago</span>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </section>
 
             <div class="space-1">
                 <div id="leave-comment" class="d-flex align-items-center mb-4">
-                    <h2 class="font-size-18 font-weight-medium text-gray-700 mb-0">Be the first to comment “Marin Retires Hurt, Saina Wins”</h2>
+                    <h2 class="font-size-18 font-weight-medium text-gray-700 mb-0">Search videos</h2>
                     <div class="border-top col p-0 ml-3 border-gray-3600"></div>
                 </div>
                 <form action="#" method="post" id="commentform" class="comment-form mb-6" novalidate="">
@@ -520,12 +358,11 @@
                 </button>
                 <!-- Body -->
                 <div class="modal-body">
-                    <form class="js-validate" action={{ url_for('change_playlist') }} method="POST">
+                    <form class="js-validate" action={{ url_for('change_playlist', url=request.url) }} method="POST">
                         <!-- Input Group -->
                         <div class="js-form-message mb-3">
                             <label class="input-label">Select Playlist</label>
                             <div class="input-group input-group-sm mb-2">
-                                <input type="text" class="form-control" name="url" id="url" hidden value={{ request.url }}>
                                 <select name="playlist" id="playlist" required data-msg="Your code is invalid. Please try again.">
                                     <option value="">select</option>
                                     {% for i in playlists %}

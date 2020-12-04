@@ -53,7 +53,8 @@ def movie(hash_url):
         if 'playlist' in session.keys():   # playlist 변경시
             return render_template('html/single-video/single-video-v1.html', uchatroom=room_created[hash_url],
                                    session=session, playlists=get_playlist(), play=session['playlist'],
-                                   items=get_playlistItems())
+                                   items=get_playlistItems(),
+                                   selected=session['select'] if 'select' in session else None)
         return render_template('html/single-video/single-video-v1.html', uchatroom=room_created[hash_url], session=session)
     if available_uchat:        # 방생성
         u = available_uchat.pop()
@@ -117,7 +118,7 @@ def get_playlist():  # 사용자 playlist 가져오기(없는경우 임의로 �
 def get_playlistItems():
     url = 'https://www.googleapis.com/youtube/v3/playlistItems?access_token=' + accessToken[0]
     req = requests.get(url, params={'part': 'snippet', 'playlistId': session['playlist']})
-    return req.json()['items'][0]
+    return req.json()['items']
 
 
 @app.route('/playlistItems_insert')
@@ -144,10 +145,13 @@ def join_room():
 
 @app.route('/change_playlist', methods=['GET', 'POST'])
 def change_playlist():
-    pl = request.form['playlist']  # 'id'
-    hash_url = request.form['url'].split('/')[-1]
-    session['playlist'] = pl
-    return redirect(url_for('movie', hash_url=hash_url))
+    url = request.args['url'].split('/')[-1]
+    if 'playlist' in request.form:
+        pl = request.form['playlist']  # 'id'
+        session['playlist'] = pl
+    if 'select' in request.args:
+        session['select'] = eval(request.args['select'])
+    return redirect(url_for('movie', hash_url=url))
 
 
 @app.route('/error_uchat')
