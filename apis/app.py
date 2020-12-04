@@ -106,6 +106,8 @@ def search():
 def get_playlist():  # 사용자 playlist 가져오기(없는경우 임의로 생성)
     url = 'https://www.googleapis.com/youtube/v3/playlists?access_token=' + accessToken[0]
     req = requests.get(url, {'part': 'snippet', 'mine': 'true'})
+    while 'items' not in req.json():
+        req = requests.get(url, {'part': 'snippet', 'mine': 'true'})
     result = req.json()['items']
     if not result:
         url2 = 'https://www.googleapis.com/youtube/v3/playlistItems?access_token=' + accessToken[0]
@@ -118,6 +120,8 @@ def get_playlist():  # 사용자 playlist 가져오기(없는경우 임의로 �
 def get_playlistItems():
     url = 'https://www.googleapis.com/youtube/v3/playlistItems?access_token=' + accessToken[0]
     req = requests.get(url, params={'part': 'snippet', 'playlistId': session['playlist']})
+    while 'items' not in req.json():
+        req = requests.get(url, params={'part': 'snippet', 'playlistId': session['playlist']})
     return req.json()['items']
 
 
