@@ -1,0 +1,43 @@
+aiohttp @ file:///C:/ci/aiohttp_1603893481584/work
+async-timeout==3.0.1
+attrs @ file:///tmp/build/80754af9/attrs_1604765588209/work
+Authlib @ file:///tmp/build/80754af9/authlib_1603204717759/work
+brotlipy==0.7.0
+cachetools @ file:///tmp/build/80754af9/cachetools_1596822027882/work
+certifi==2020.11.8
+cffi @ file:///C:/ci/cffi_1605538148575/work
+chardet @ file:///C:/ci/chardet_1605303259695/work
+click==7.1.2
+cryptography @ file:///C:/ci/cryptography_1605544557248/work
+Flask==1.1.2
+google-api-core @ file:///C:/ci/google-api-core-split_1601307128777/work
+google-api-python-client @ file:///home/conda/feedstock_root/build_artifacts/google-api-python-client_1605645216056/work
+google-auth @ file:///tmp/build/80754af9/google-auth_1604100403705/work
+google-auth-httplib2 @ file:///home/conda/feedstock_root/build_artifacts/google-auth-httplib2_1601483325475/work
+googleapis-common-protos @ file:///C:/ci/googleapis-common-protos-feedstock_1600455733359/work
+httplib2 @ file:///home/conda/feedstock_root/build_artifacts/httplib2_1590007784658/work
+idna @ file:///tmp/build/80754af9/idna_1593446292537/work
+itsdangerous==1.1.0
+Jinja2==2.11.2
+MarkupSafe @ file:///C:/ci/markupsafe_1594405949945/work
+multidict @ file:///C:/ci/multidict_1600456486794/work
+protobuf==3.13.0
+pyasn1==0.4.8
+pyasn1-modules==0.2.8
+pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
+PyJWT==1.7.1
+PyMySQL @ file:///C:/ci/pymysql_1601577445570/work
+pyOpenSSL @ file:///tmp/build/80754af9/pyopenssl_1605545627475/work
+PySocks @ file:///C:/ci/pysocks_1594394709107/work
+pytz==2020.1
+requests @ file:///tmp/build/80754af9/requests_1592841827918/work
+rsa @ file:///tmp/build/80754af9/rsa_1596998415516/work
+simplejson @ file:///C:/ci/simplejson_1598618891408/work
+six @ file:///C:/ci/six_1605205426665/work
+typing-extensions @ file:///tmp/build/80754af9/typing_extensions_1598376058250/work
+uritemplate==3.0.1
+urllib3 @ file:///tmp/build/80754af9/urllib3_1603305693037/work
+Werkzeug==1.0.1
+win-inet-pton @ file:///C:/ci/win_inet_pton_1605306165655/work
+wincertstore==0.2
+yarl @ file:///C:/ci/yarl_1598045271760/work
