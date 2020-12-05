@@ -1,34 +1,49 @@
-async-timeout==3.0.1
-Authlib @ file:///tmp/build/80754af9/authlib_1603204717759/work
-brotlipy==0.7.0
-certifi==2020.11.8
-cffi @ file:///C:/ci/cffi_1606255208697/work
-chardet @ file:///C:/ci/chardet_1605303225733/work
-click==7.1.2
-cryptography @ file:///C:/ci/cryptography_1605526388508/work
-Flask==1.1.2
-idna @ file:///tmp/build/80754af9/idna_1593446292537/work
-itsdangerous==1.1.0
-Jinja2==2.11.2
-MarkupSafe==1.1.1
-protobuf==3.13.0
-pyasn1==0.4.8
-pyasn1-modules==0.2.8
-pycparser @ file:///tmp/build/80754af9/pycparser_1594388511720/work
-PyJWT==1.7.1
-PyMySQL @ file:///C:/ci/pymysql_1601579814119/work
-pyOpenSSL @ file:///tmp/build/80754af9/pyopenssl_1606517880428/work
-PySocks @ file:///C:/ci/pysocks_1605287845585/work
-pytz==2020.1
-requests @ file:///home/conda/feedstock_root/build_artifacts/requests_1592425495151/work
-simplejson @ file:///C:/ci/simplejson_1598607882059/work
-six @ file:///C:/ci/six_1605187374963/work
-uritemplate==3.0.1
-urllib3 @ file:///tmp/build/80754af9/urllib3_1603305693037/work
-Werkzeug==1.0.1
-win-inet-pton @ file:///C:/ci/win_inet_pton_1605306167264/work
-wincertstore==0.2
+# This file may be used to create an environment using:
+# $ conda create --name <env> --file <this file>
+# platform: win-64
+async-timeout=3.0.1=py38_0
+authlib=0.15.2=py_0
+brotlipy=0.7.0=py38h2bbff1b_1003
+ca-certificates=2020.10.14=0
+certifi=2020.11.8=py38haa95532_0
+cffi=1.14.4=py38hcd4344a_0
+chardet=3.0.4=py38haa95532_1003
+click=7.1.2=py_0
+cryptography=3.2.1=py38hcd4344a_1
+flask=1.1.2=py_0
+idna=2.10=py_0
+itsdangerous=1.1.0=py_0
+jinja2=2.11.2=py_0
+libprotobuf=3.13.0.1=h200bbdf_0
+markupsafe=1.1.1=py38he774522_0
+openssl=1.1.1h=he774522_0
+pip=20.3=py38haa95532_0
+protobuf=3.13.0=py38h33f27b4_1
+pyasn1=0.4.8=py_0
+pyasn1-modules=0.2.8=py_0
+pycparser=2.20=py_2
+pyjwt=1.7.1=py38_0
+pymysql=0.10.1=py38_0
+pyopenssl=20.0.0=pyhd3eb1b0_1
+pysocks=1.7.1=py38haa95532_0
+python=3.8.5=h5fd99cc_1
+pytz=2020.1=py_0
+requests=2.24.0=pyh9f0ad1d_0
+setuptools=50.3.2=py38haa95532_2
+simplejson=3.17.2=py38he774522_0
+six=1.15.0=py38haa95532_0
+sqlite=3.33.0=h2a8f88b_0
+uritemplate=3.0.1=py_0
+urllib3=1.25.11=py_0
+vc=14.1=h0510ff6_4
+vs2015_runtime=14.16.27012=hf0eaf9b_3
+werkzeug=1.0.1=py_0
+wheel=0.36.0=pyhd3eb1b0_0
+win_inet_pton=1.1.0=py38haa95532_0
+wincertstore=0.2=py38_0
+zlib=1.2.11=h62dcd97_4
 
 pymysql~=0.10.1
 requests~=2.24.0
 authlib~=0.15.2
+flask~=1.1.2
