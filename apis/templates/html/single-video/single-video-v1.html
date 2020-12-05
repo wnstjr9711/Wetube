@@ -227,7 +227,7 @@
                         <script>U=window.U=window.U||{},U.events=U.events||[],U.chat=function(n){return{on:function(e,t){U.events.push([n,e,t])},off:function(e){for(var t=U.events.length;t>0;)U.events[--t][0]==n&&U.events[t][1]==e&&U.events.splice(t,1)}}};</script>
                         <script>
                         U.chat('*').on('after.join', function(room, data){
-                        room.action.command('changeInfo', { 'nick': 'Xin' });
+                        room.action.command('changeInfo', { 'nick': '준석' });
                         });
                         </script>
                     </u-chat>
@@ -249,7 +249,7 @@
                                 </a>
                             </div>
                             <h6 class="product-title font-size-1 font-weight-bold mb-0">
-                                <a href="아직안만듬">{{ videos['snippet']['title'] }}</a>
+                                <a href={{ url_for('change_playlist', url=request.url, select=videos) }}>{{ videos['snippet']['title'] }}</a>
                             </h6>
                         </div>
                     </div>

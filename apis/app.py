@@ -55,7 +55,7 @@ def movie(hash_url):
                                    session=session, playlists=get_playlist(), play=session['playlist'],
                                    items=get_playlistItems(),
                                    selected=session['select'] if 'select' in session else None)
-        return render_template('html/single-video/single-video-v1.html', uchatroom=room_created[hash_url], session=session)
+        return url_for('movie', hash_url=hash_url)
     if available_uchat:        # 방생성
         u = available_uchat.pop()
         room_created[hash_url] = u
@@ -173,4 +173,4 @@ def make_hash():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0")
