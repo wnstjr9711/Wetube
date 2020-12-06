@@ -22,6 +22,7 @@ pyOpenSSL==20.0.0
 PySocks==1.7.1
 pytz==2020.1
 requests==2.24.0
+setuptools==50.3.2.post20201202
 simplejson==3.17.2
 six==1.15.0
 uritemplate==3.0.1
