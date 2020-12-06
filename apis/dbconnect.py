@@ -1,7 +1,7 @@
 import json
 import pymysql
 
-db = pymysql.connect(host='127.0.0.1', port=3306, user='root', passwd='1103', db='service', charset='utf8',
+db = pymysql.connect(host='database-2.ckxupymlkkbs.ap-northeast-2.rds.amazonaws.com', port=3306, user='root', passwd='kjs97871103', db='service', charset='utf8',
                      autocommit=True)
 
 

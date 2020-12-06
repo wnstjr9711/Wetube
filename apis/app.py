@@ -82,7 +82,6 @@ def movie(hash_url):
         return redirect(url_for('no_uchat'))
 
 
-
 @app.route('/search')
 def search():
     url = 'https://www.googleapis.com/youtube/v3/search?key=' + apikey
