@@ -1,11 +1,11 @@
 from authlib.integrations.base_client import MismatchingStateError
 from flask import Flask, render_template, url_for, redirect, session, request, flash
 from authlib.integrations.flask_client import OAuth
-import pymysql
 import requests
 import json
 import hashlib
 import time
+import dbconnect
 
 app = Flask(__name__)
 app.secret_key = 'random secret'
@@ -25,17 +25,6 @@ accessToken = list()
 playlistID = list()
 apikey = 'AIzaSyB-9F9Z1JeKt_XH3RbowGsZUTkuLAH7pFs'
 available_uchat = ['test201116']
-room_created = dict()
-
-# @app.route('/db')
-# def show_db():
-#     db = pymysql.connect(host='127.0.0.1', port=3306, user='root', passwd='1103', db='service', charset='utf8')
-#     cursor = db.cursor()
-#     sql = "Select * from test"
-#     cursor.execute(sql)
-#     result = str(cursor.fetchall())
-#     db.close()
-#     return result
 
 
 @app.route('/')
@@ -43,26 +32,6 @@ def home():
     if not accessToken:     # session cache clear
         session.clear()
     return render_template('html/home/index.html', session=session, code=make_hash())
-
-
-@app.route('/movies/<hash_url>')
-def movie(hash_url):
-    if not session:     # 로그아웃 후 뒤로가기 금지
-        return redirect('/')
-    if hash_url in room_created:    # 기존 방 입장
-        if 'playlist' in session.keys():   # playlist 변경시
-            return render_template('html/single-video/single-video-v1.html', uchatroom=room_created[hash_url],
-                                   session=session, playlists=get_playlist(), play=session['playlist'],
-                                   items=get_playlistItems(),
-                                   selected=session['select'] if 'select' in session else None)
-        return url_for('movie', hash_url=hash_url)
-    if available_uchat:        # 방생성
-        u = available_uchat.pop()
-        room_created[hash_url] = u
-        return render_template('html/single-video/single-video-v1.html', uchatroom=u, session=session, code=make_hash(),
-                               playlists=get_playlist(), play=None)
-    else:                      # uchat 할당 불가
-        return redirect(url_for('no_uchat'))
 
 
 @app.route('/login')
@@ -93,6 +62,27 @@ def authorize():
     return redirect('/')
 
 
+@app.route('/movies/<hash_url>')
+def movie(hash_url):
+    if not session:     # 로그아웃 후 뒤로가기 금지
+        return redirect('/')
+    rooms = dbconnect.get_rooms()
+    if hash_url in rooms:    # 기존 방 입장
+        uid = rooms[hash_url]
+        return render_template('html/single-video/single-video-v1.html', uchatroom=uid, session=session,
+                               playlists=dbconnect.get_playlists(uid), play=dbconnect.get_playlist(uid),
+                               items=dbconnect.get_videos(uid), selected=dbconnect.get_video(uid))
+    if available_uchat:        # 방생성
+        uid = available_uchat.pop()
+        playlists = get_playlist()
+        dbconnect.create_room(uid, hash_url, playlists)
+        return render_template('html/single-video/single-video-v1.html', uchatroom=uid, session=session,
+                               code=make_hash(), playlists=playlists, play=None)
+    else:                      # uchat 할당 불가
+        return redirect(url_for('no_uchat'))
+
+
+
 @app.route('/search')
 def search():
     url = 'https://www.googleapis.com/youtube/v3/search?key=' + apikey
@@ -117,11 +107,11 @@ def get_playlist():  # 사용자 playlist 가져오기(없는경우 임의로 �
     return result
 
 
-def get_playlistItems():
+def get_playlistItems(playlist):
     url = 'https://www.googleapis.com/youtube/v3/playlistItems?access_token=' + accessToken[0]
-    req = requests.get(url, params={'part': 'snippet', 'playlistId': session['playlist']})
+    req = requests.get(url, params={'part': 'snippet', 'playlistId': playlist})
     while 'items' not in req.json():
-        req = requests.get(url, params={'part': 'snippet', 'playlistId': session['playlist']})
+        req = requests.get(url, params={'part': 'snippet', 'playlistId': playlist})
     return req.json()['items']
 
 
@@ -150,11 +140,13 @@ def join_room():
 @app.route('/change_playlist', methods=['GET', 'POST'])
 def change_playlist():
     url = request.args['url'].split('/')[-1]
+    uid = dbconnect.get_rooms()[url]
     if 'playlist' in request.form:
         pl = request.form['playlist']  # 'id'
-        session['playlist'] = pl
+        dbconnect.set_playlist(uid, pl)
+        dbconnect.set_videos(uid, get_playlistItems(pl))
     if 'select' in request.args:
-        session['select'] = eval(request.args['select'])
+        dbconnect.set_video(uid, eval(request.args['select']))
     return redirect(url_for('movie', hash_url=url))
 
 
