@@ -17,9 +17,9 @@ def create_room(uid, code, playlists):
 
 def create_roomTest(uid, code, playlists):
     cursor = db.cursor()
-    sql = "DELETE FROM roomdata;"
+    sql = "DELETE FROM roomdata WHERE uchatid = '{}';".format(uid)
     cursor.execute(sql)
-    sql2 = "DELETE FROM room;"
+    sql2 = "DELETE FROM room WHERE uchatid = '{}';".format(uid)
     cursor.execute(sql2)
     return create_room(uid, code, playlists)
 

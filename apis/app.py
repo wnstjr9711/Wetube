@@ -6,6 +6,7 @@ import json
 import hashlib
 import time
 import dbconnect
+import random
 
 app = Flask(__name__)
 app.secret_key = 'random secret'
@@ -23,16 +24,17 @@ oauth.register(
 )
 playlistID = list()
 apikey = 'AIzaSyB7vQKUagJZdBgi1UsRpWohtRmgOo7jc7I'
-available_uchat = ['test201116']
+available_uchat = ['test201116', '201207', 'test_2']
 
 
 @app.route('/')
 def home():
     if 'token' in session:
-        check_token()
-        return render_template('html/home/index.html', session=session, code=make_hash())
+        if check_token():
+            return render_template('html/home/index.html', session=session, code=make_hash())
+        else:
+            return render_template('html/home/index.html', session=session, code='None')
     else:
-        print(session)
         return render_template('html/home/index.html', session=session, code='None')
 
 
@@ -71,16 +73,15 @@ def movie(hash_url):
     rooms = dbconnect.get_rooms()
     if hash_url in rooms:    # 기존 방 입장
         uid = rooms[hash_url]
-        return render_template('html/single-video/single-video-v1.html', uchatroom=uid, session=session,
+        return render_template('html/single-video/video.html', uchatroom=uid, session=session,
                                playlists=dbconnect.get_playlists(uid), play=dbconnect.get_playlist(uid),
                                items=dbconnect.get_videos(uid), selected=dbconnect.get_video(uid))
     if available_uchat:        # 방생성
-        # uid = available_uchat.pop()
-        uid = available_uchat[0]
+        uid = available_uchat[random.randint(0, 2)]
         playlists = get_playlist()
         dbconnect.create_roomTest(uid, hash_url, playlists)
         # dbconnect.create_room(uid, hash_url, playlists)
-        return render_template('html/single-video/single-video-v1.html', uchatroom=uid, session=session,
+        return render_template('html/single-video/video.html', uchatroom=uid, session=session,
                                code=make_hash(), playlists=playlists, play=None)
     else:                      # uchat 할당 불가
         return redirect(url_for('no_uchat'))
@@ -170,7 +171,10 @@ def make_hash():
 def check_token():
     check = 'https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=' + session['token']
     if 'error' in requests.get(check).json():  # access token expired
-        return login()
+        logout()
+        return False
+    else:
+        return True
 
 
 if __name__ == '__main__':
