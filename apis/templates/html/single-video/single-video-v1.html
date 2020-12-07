@@ -194,31 +194,31 @@
                         </div>
                         {% endif %}
                     </div>
-                    {% if items %}
                     <div class="mr-xl-3">
-                        {% if not selected %}
-                        <div class="mb-2">
-                            <h5 class="font-size-21 text-dark font-weight-medium">{{ items[0]['snippet']['title'] }}</h5>
-                        </div>
-                        <div class="font-size-12 mb-4">
-                            <span class="d-inline-flex text-gray-1300 align-items-center mr-3">{{ items[0]['snippet']['publishedAt'] }}</span>
-                        </div>
-                        {% else %}
+                        {% if items %}
+                            {% if not selected %}
                             <div class="mb-2">
-                            <h5 class="font-size-21 text-dark font-weight-medium">{{ selected['snippet']['title'] }}</h5>
-                        </div>
-                        <div class="font-size-12 mb-4">
-                            <span class="d-inline-flex text-gray-1300 align-items-center mr-3">{{ selected['snippet']['publishedAt'] }}</span>
-                        </div>
+                                <h5 class="font-size-21 text-dark font-weight-medium">{{ items[0]['snippet']['title'] }}</h5>
+                            </div>
+                            <div class="font-size-12 mb-4">
+                                <span class="d-inline-flex text-gray-1300 align-items-center mr-3">{{ items[0]['snippet']['publishedAt'] }}</span>
+                            </div>
+                            {% else %}
+                                <div class="mb-2">
+                                <h5 class="font-size-21 text-dark font-weight-medium">{{ selected['snippet']['title'] }}</h5>
+                            </div>
+                            <div class="font-size-12 mb-4">
+                                <span class="d-inline-flex text-gray-1300 align-items-center mr-3">{{ selected['snippet']['publishedAt'] }}</span>
+                            </div>
+                            {% endif %}
                         {% endif %}
                         <nav class="js-scroll-nav">
                             <div class="space-1 position-relative d-flex">
-                                <a class="nav-link mx-auto px-6 py-2d font-size-14 h-g1-primary z-index-2 border border-gray-3600 rounded-pill bg-white " href="#leave-comment"><i class="far fa-comment mr-2"></i>Search Videos</a>
+                                <a class="nav-link mx-auto px-6 py-2d font-size-14 h-g1-primary z-index-2 border border-gray-3600 rounded-pill bg-white " href="#search-videos"><i class="far fa-comment mr-2"></i>Search Videos</a>
                                 <div class="border-top content-centered w-100 border-gray-3600"></div>
                             </div>
                         </nav>
                     </div>
-                    {% endif %}
                 </div>
 
                 <div class="col-md-4 col-xl-3">
@@ -227,7 +227,7 @@
                         <script>U=window.U=window.U||{},U.events=U.events||[],U.chat=function(n){return{on:function(e,t){U.events.push([n,e,t])},off:function(e){for(var t=U.events.length;t>0;)U.events[--t][0]==n&&U.events[t][1]==e&&U.events.splice(t,1)}}};</script>
                         <script>
                         U.chat('*').on('after.join', function(room, data){
-                        room.action.command('changeInfo', { 'nick': '준석' });
+                        {#room.action.command('changeInfo', { 'nick': '준석' });#}
                         });
                         </script>
                     </u-chat>
@@ -258,7 +258,7 @@
             </section>
 
             <div class="space-1">
-                <div id="leave-comment" class="d-flex align-items-center mb-4">
+                <div id="search-videos" class="d-flex align-items-center mb-4">
                     <h2 class="font-size-18 font-weight-medium text-gray-700 mb-0">Search videos</h2>
                     <div class="border-top col p-0 ml-3 border-gray-3600"></div>
                 </div>
