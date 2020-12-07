@@ -7,6 +7,14 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
     <envs>
       <env key="FLASK_APP" value="app" />
@@ -28,6 +36,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -35,6 +44,11 @@
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\KOREATECH\ServiceOrientedComputing\ServiceOriented\apis\templates\html\login" />
+    </key>
   </component>
   <component name="RunManager" selected="Flask server.Flask (app.py)">
     <configuration name="ServiceOriented" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
@@ -92,6 +106,8 @@
       <workItem from="1607082635794" duration="2287000" />
       <workItem from="1607085132832" duration="1206000" />
       <workItem from="1607086643604" duration="3102000" />
+      <workItem from="1607103084703" duration="2317000" />
+      <workItem from="1607182485260" duration="184000" />
     </task>
     <servers />
   </component>
@@ -111,22 +127,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="828" y="195" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1607087384785" />
-    <state width="596" height="266" key="GridCell.Tab.0.bottom" timestamp="1607099490272">
+    <state width="596" height="266" key="GridCell.Tab.0.bottom" timestamp="1607104624071">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="596" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607099490272" />
-    <state width="596" height="266" key="GridCell.Tab.0.center" timestamp="1607099490272">
+    <state width="596" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607104624071" />
+    <state width="596" height="266" key="GridCell.Tab.0.center" timestamp="1607104624071">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="596" height="266" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607099490272" />
-    <state width="596" height="266" key="GridCell.Tab.0.left" timestamp="1607099490271">
+    <state width="596" height="266" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607104624071" />
+    <state width="596" height="266" key="GridCell.Tab.0.left" timestamp="1607104624071">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="596" height="266" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607099490271" />
-    <state width="596" height="266" key="GridCell.Tab.0.right" timestamp="1607099490272">
+    <state width="596" height="266" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607104624071" />
+    <state width="596" height="266" key="GridCell.Tab.0.right" timestamp="1607104624071">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="596" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607099490272" />
+    <state width="596" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607104624071" />
     <state x="610" y="109" key="SettingsEditor" timestamp="1607087140083">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -134,6 +150,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/ServiceOriented$ServiceOrientedComputing.coverage" NAME="ServiceOriented Coverage Results" MODIFIED="1607087388336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.." />
-    <SUITE FILE_PATH="coverage/ServiceOriented$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1607099490247" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apis" />
+    <SUITE FILE_PATH="coverage/ServiceOriented$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1607103429917" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apis" />
   </component>
 </project>

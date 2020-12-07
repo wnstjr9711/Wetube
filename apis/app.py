@@ -24,6 +24,7 @@ oauth.register(
 accessToken = list()
 playlistID = list()
 apikey = 'AIzaSyB-9F9Z1JeKt_XH3RbowGsZUTkuLAH7pFs'
+apikey2 = 'AIzaSyCPV5F0Kp5NOF1ethkaSfR9JWYB2Jqsnhs' # Login api
 available_uchat = ['test201116']
 room_created = dict()
 
@@ -170,6 +171,10 @@ def make_hash():
         return hash_code.hexdigest()
     except AssertionError:
         return None
+
+@app.route('/receivecode')
+def login_receive():
+    return render_template('apis/templates/login/receivecode.html')
 
 
 if __name__ == '__main__':
