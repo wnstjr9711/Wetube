@@ -73,7 +73,8 @@ def movie(hash_url):
                                playlists=dbconnect.get_playlists(uid), play=dbconnect.get_playlist(uid),
                                items=dbconnect.get_videos(uid), selected=dbconnect.get_video(uid))
     if available_uchat:        # 방생성
-        uid = available_uchat.pop()
+        # uid = available_uchat.pop()
+        uid = 'test201116'
         playlists = get_playlist()
         dbconnect.create_room(uid, hash_url, playlists)
         return render_template('html/single-video/single-video-v1.html', uchatroom=uid, session=session,
