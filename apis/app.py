@@ -22,7 +22,6 @@ oauth.register(
     api_base_url='https://www.googleapis.com/oauth2/v1/',
     client_kwargs={'scope': 'openid email profile https://www.googleapis.com/auth/youtube'}
 )
-playlistID = list()
 apikey = 'AIzaSyB7vQKUagJZdBgi1UsRpWohtRmgOo7jc7I'
 available_uchat = ['test201116', '201207', 'test_2']
 
@@ -60,6 +59,7 @@ def authorize():
         session['email'] = userinfo['email']
         session['picture'] = userinfo['picture']
         session['token'] = token['access_token']
+        session['name'] = userinfo['name']
     except MismatchingStateError:
         login()
     return redirect('/')
