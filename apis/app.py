@@ -13,7 +13,7 @@ oauth = OAuth(app)
 oauth.register(
     name='google',
     client_id='620470364281-h2os00vpkd6jiel6fq6j4e3on9da9udc.apps.googleusercontent.com',
-    client_secret='WO2l5pOnk3wMOO9yChZ0BF4x',
+    client_secret='y8PNdgV2Sx3HiejYJplSHruF',
     access_token_url='https://accounts.google.com/o/oauth2/token',
     access_token_params=None,
     authorize_url='https://accounts.google.com/o/oauth2/auth',
@@ -99,10 +99,10 @@ def get_playlist():  # 사용자 playlist 가져오기(없는경우 임의로 �
         req = requests.get(url, {'part': 'snippet', 'mine': 'true'})
     result = req.json()['items']
     if not result:
-        url2 = 'https://www.googleapis.com/youtube/v3/playlistItems?access_token=' + accessToken[0]
+        url2 = 'https://www.googleapis.com/youtube/v3/playlists?access_token=' + accessToken[0]
         req2 = requests.post(url2, params={'part': 'snippet'}, data=json.dumps({'snippet': {
-            'title': session['email']}}))
-        result = req2.json()
+            'title': 'new'}}))
+        result.append(req2.json())
     return result
 
 
