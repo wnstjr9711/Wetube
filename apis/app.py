@@ -1,5 +1,5 @@
 from authlib.integrations.base_client import MismatchingStateError
-from flask import Flask, render_template, url_for, redirect, session, request, flash
+from flask import Flask, render_template, url_for, redirect, session, request
 from authlib.integrations.flask_client import OAuth
 import requests
 import json
@@ -12,8 +12,8 @@ app.secret_key = 'random secret'
 oauth = OAuth(app)
 oauth.register(
     name='google',
-    client_id='620470364281-h2os00vpkd6jiel6fq6j4e3on9da9udc.apps.googleusercontent.com',
-    client_secret='y8PNdgV2Sx3HiejYJplSHruF',
+    client_id='926038021764-4bulburui2tqpa6qrjqb8nuf28am4k4q.apps.googleusercontent.com',
+    client_secret='CTpAsLNi7jo63PK6dm-URVOJ',
     access_token_url='https://accounts.google.com/o/oauth2/token',
     access_token_params=None,
     authorize_url='https://accounts.google.com/o/oauth2/auth',
@@ -23,7 +23,7 @@ oauth.register(
 )
 accessToken = list()
 playlistID = list()
-apikey = 'AIzaSyB-9F9Z1JeKt_XH3RbowGsZUTkuLAH7pFs'
+apikey = 'AIzaSyB7vQKUagJZdBgi1UsRpWohtRmgOo7jc7I'
 available_uchat = ['test201116']
 
 
@@ -74,9 +74,10 @@ def movie(hash_url):
                                items=dbconnect.get_videos(uid), selected=dbconnect.get_video(uid))
     if available_uchat:        # 방생성
         # uid = available_uchat.pop()
-        uid = 'test201116'
+        uid = available_uchat[0]
         playlists = get_playlist()
-        dbconnect.create_room(uid, hash_url, playlists)
+        dbconnect.create_roomTest(uid, hash_url, playlists)
+        # dbconnect.create_room(uid, hash_url, playlists)
         return render_template('html/single-video/single-video-v1.html', uchatroom=uid, session=session,
                                code=make_hash(), playlists=playlists, play=None)
     else:                      # uchat 할당 불가
