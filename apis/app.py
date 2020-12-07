@@ -21,7 +21,6 @@ oauth.register(
     api_base_url='https://www.googleapis.com/oauth2/v1/',
     client_kwargs={'scope': 'openid email profile https://www.googleapis.com/auth/youtube'}
 )
-accessToken = list()
 playlistID = list()
 apikey = 'AIzaSyB7vQKUagJZdBgi1UsRpWohtRmgOo7jc7I'
 available_uchat = ['test201116']
@@ -29,9 +28,11 @@ available_uchat = ['test201116']
 
 @app.route('/')
 def home():
-    if not accessToken:     # session cache clear
-        session.clear()
-    return render_template('html/home/index.html', session=session, code=make_hash())
+    if 'token' in session:
+        check_token()
+        return render_template('html/home/index.html', session=session, code=make_hash())
+    else:
+        return render_template('html/home/index.html', session=session, code='None')
 
 
 @app.route('/login')
@@ -44,7 +45,6 @@ def login():
 @app.route('/logout')
 def logout():
     session.clear()
-    accessToken.pop()
     return redirect('/')
 
 
@@ -53,10 +53,10 @@ def authorize():
     try:
         google = oauth.create_client('google')
         token = google.authorize_access_token()
-        accessToken.append(token['access_token'])
         userinfo = google.get('userinfo').json()
         session['email'] = userinfo['email']
         session['picture'] = userinfo['picture']
+        session['token'] = token['access_token']
     except MismatchingStateError:
         login()
     return redirect('/')
@@ -64,6 +64,7 @@ def authorize():
 
 @app.route('/movies/<hash_url>')
 def movie(hash_url):
+    check_token()
     if not session:     # 로그아웃 후 뒤로가기 금지
         return redirect('/')
     rooms = dbconnect.get_rooms()
@@ -95,13 +96,13 @@ def search():
 
 
 def get_playlist():  # 사용자 playlist 가져오기(없는경우 임의로 생성)
-    url = 'https://www.googleapis.com/youtube/v3/playlists?access_token=' + accessToken[0]
+    url = 'https://www.googleapis.com/youtube/v3/playlists?access_token=' + session['token']
     req = requests.get(url, {'part': 'snippet', 'mine': 'true'})
     while 'items' not in req.json():
         req = requests.get(url, {'part': 'snippet', 'mine': 'true'})
     result = req.json()['items']
     if not result:
-        url2 = 'https://www.googleapis.com/youtube/v3/playlists?access_token=' + accessToken[0]
+        url2 = 'https://www.googleapis.com/youtube/v3/playlists?access_token=' + session['token']
         req2 = requests.post(url2, params={'part': 'snippet'}, data=json.dumps({'snippet': {
             'title': 'new'}}))
         result.append(req2.json())
@@ -109,7 +110,7 @@ def get_playlist():  # 사용자 playlist 가져오기(없는경우 임의로 �
 
 
 def get_playlistItems(playlist):
-    url = 'https://www.googleapis.com/youtube/v3/playlistItems?access_token=' + accessToken[0]
+    url = 'https://www.googleapis.com/youtube/v3/playlistItems?access_token=' + session['token']
     req = requests.get(url, params={'part': 'snippet', 'playlistId': playlist})
     while 'items' not in req.json():
         req = requests.get(url, params={'part': 'snippet', 'playlistId': playlist})
@@ -118,7 +119,7 @@ def get_playlistItems(playlist):
 
 @app.route('/playlistItems_insert')
 def playlistItems_insert():
-    url = 'https://www.googleapis.com/youtube/v3/playlistItems?access_token=' + accessToken[0]
+    url = 'https://www.googleapis.com/youtube/v3/playlistItems?access_token=' + session['token']
     req = requests.post(url, params={'part': 'snippet'}, data=json.dumps({'snippet': {'playlistId': 'PLAZnenWndLxcO81kB87Bw-Io4MpHaRPRt', 'resourceId': {'kind': 'youtube#video', 'videoId': 'EAyo3_zJj5c'}}}))
     print(req.status_code)
     return redirect('/')
@@ -126,7 +127,7 @@ def playlistItems_insert():
 
 @app.route('/playlistItems_delete')
 def playlistItems_delete():
-    url = 'https://www.googleapis.com/youtube/v3/playlistItems?access_token=' + accessToken[0]
+    url = 'https://www.googleapis.com/youtube/v3/playlistItems?access_token=' + session['token']
     req = requests.delete(url, params={'id': 'UExBWm5lblduZEx4Y084MWtCODdCdy1JbzRNcEhhUlBSdC4yODlGNEE0NkRGMEEzMEQy'})
     print(req.status_code)
     return redirect('/')
@@ -157,12 +158,14 @@ def no_uchat():
 
 
 def make_hash():
-    try:
-        assert accessToken
-        hash_code = hashlib.sha256(accessToken[0].encode() + str(time.time()).encode())
-        return hash_code.hexdigest()
-    except AssertionError:
-        return None
+    hash_code = hashlib.sha256(session['token'].encode() + str(time.time()).encode())
+    return hash_code.hexdigest()
+
+
+def check_token():
+    check = 'https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=' + session['token']
+    if 'error' in requests.get(check).json():  # access token expired
+        return login()
 
 
 if __name__ == '__main__':
