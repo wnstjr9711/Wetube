@@ -32,6 +32,7 @@ def home():
         check_token()
         return render_template('html/home/index.html', session=session, code=make_hash())
     else:
+        print(session)
         return render_template('html/home/index.html', session=session, code='None')
 
 
@@ -112,6 +113,8 @@ def get_playlist():  # 사용자 playlist 가져오기(없는경우 임의로 �
 def get_playlistItems(playlist):
     url = 'https://www.googleapis.com/youtube/v3/playlistItems?access_token=' + session['token']
     req = requests.get(url, params={'part': 'snippet', 'playlistId': playlist})
+    if req.status_code == 404:
+        return None
     while 'items' not in req.json():
         req = requests.get(url, params={'part': 'snippet', 'playlistId': playlist})
     return req.json()['items']
@@ -145,8 +148,10 @@ def change_playlist():
     uid = dbconnect.get_rooms()[url]
     if 'playlist' in request.form:
         pl = request.form['playlist']  # 'id'
-        dbconnect.set_playlist(uid, pl)
-        dbconnect.set_videos(uid, get_playlistItems(pl))
+        pli = get_playlistItems(pl)
+        if pli:
+            dbconnect.set_playlist(uid, pl)
+            dbconnect.set_videos(uid, pli)
     if 'select' in request.args:
         dbconnect.set_video(uid, eval(request.args['select']))
     return redirect(url_for('movie', hash_url=url))
