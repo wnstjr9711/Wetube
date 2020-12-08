@@ -25,7 +25,6 @@ oauth.register(
 apikey = 'AIzaSyB7vQKUagJZdBgi1UsRpWohtRmgOo7jc7I'
 available_uchat = ['test201116', '201207', 'test_2']
 
-
 @app.route('/')
 def home():
     if 'token' in session:
@@ -73,28 +72,17 @@ def movie(hash_url):
     rooms = dbconnect.get_rooms()
     if hash_url in rooms:    # 기존 방 입장
         uid = rooms[hash_url]
-        return render_template('html/single-video/video.html', uchatroom=uid, session=session,
+        return render_template('html/single-video/video.html', uchatroom=uid, session=session, code=make_hash(),
                                playlists=dbconnect.get_playlists(uid), play=dbconnect.get_playlist(uid),
-                               items=dbconnect.get_videos(uid), selected=dbconnect.get_video(uid))
-    if available_uchat:        # 방생성
+                               items=dbconnect.get_videos(uid), selected=dbconnect.get_video(uid),
+                               search=session.pop('search') if 'search' in session else None)
+    else:        # 방생성
         uid = available_uchat[random.randint(0, 2)]
         playlists = get_playlist()
         dbconnect.create_roomTest(uid, hash_url, playlists)
         # dbconnect.create_room(uid, hash_url, playlists)
         return render_template('html/single-video/video.html', uchatroom=uid, session=session,
                                code=make_hash(), playlists=playlists, play=None)
-    else:                      # uchat 할당 불가
-        return redirect(url_for('no_uchat'))
-
-
-@app.route('/search')
-def search():
-    url = 'https://www.googleapis.com/youtube/v3/search?key=' + apikey
-    req = requests.get(url, {'part': 'snippet', 'q': '파이썬'})
-    if req.status_code == 200:
-        for i in req.json()['items']:
-            print(i['snippet']['title'])
-    return redirect('/')
 
 
 def get_playlist():  # 사용자 playlist 가져오기(없는경우 임의로 생성)
@@ -114,7 +102,7 @@ def get_playlist():  # 사용자 playlist 가져오기(없는경우 임의로 �
 def get_playlistItems(playlist):
     url = 'https://www.googleapis.com/youtube/v3/playlistItems?access_token=' + session['token']
     req = requests.get(url, params={'part': 'snippet', 'playlistId': playlist})
-    if req.status_code == 404:
+    if req.status_code == 404:  # playlist의 host가 아닌경우 가져올 수 없음
         return None
     while 'items' not in req.json():
         req = requests.get(url, params={'part': 'snippet', 'playlistId': playlist})
@@ -150,7 +138,7 @@ def change_playlist():
     if 'playlist' in request.form:
         pl = request.form['playlist']  # 'id'
         pli = get_playlistItems(pl)
-        if pli:
+        if type(pli) is list:  # 빈 playlist의 경우도 가져옴
             dbconnect.set_playlist(uid, pl)
             dbconnect.set_videos(uid, pli)
     if 'select' in request.args:
@@ -158,9 +146,26 @@ def change_playlist():
     return redirect(url_for('movie', hash_url=url))
 
 
-@app.route('/error_uchat')
-def no_uchat():
-    return render_template('html/uchatunavailable.html')
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    code = request.args['url'].split('/')[-1]
+    url = 'https://www.googleapis.com/youtube/v3/search?key=' + apikey
+    req = requests.get(url, {'part': 'snippet', 'maxResults': 10, 'q': request.form['search_video']})
+    if req.status_code == 200:
+        session['search'] = req.json()['items']
+    return redirect(url_for('movie', hash_url=code))
+
+
+def get_search(q):
+    url = 'https://www.googleapis.com/youtube/v3/search?key=' + apikey
+    req = requests.get(url, {'part': 'snippet', 'maxResults': 10, 'q': q})
+    if req.status_code == 200:
+        return req.json()['items']
+
+
+# @app.route('/error_uchat')
+# def no_uchat():
+#     return render_template('html/uchatunavailable.html')
 
 
 def make_hash():
