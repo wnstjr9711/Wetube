@@ -109,22 +109,6 @@ def get_playlistItems(playlist):
     return req.json()['items']
 
 
-@app.route('/playlistItems_insert')
-def playlistItems_insert():
-    url = 'https://www.googleapis.com/youtube/v3/playlistItems?access_token=' + session['token']
-    req = requests.post(url, params={'part': 'snippet'}, data=json.dumps({'snippet': {'playlistId': 'PLAZnenWndLxcO81kB87Bw-Io4MpHaRPRt', 'resourceId': {'kind': 'youtube#video', 'videoId': 'EAyo3_zJj5c'}}}))
-    print(req.status_code)
-    return redirect('/')
-
-
-@app.route('/playlistItems_delete')
-def playlistItems_delete():
-    url = 'https://www.googleapis.com/youtube/v3/playlistItems?access_token=' + session['token']
-    req = requests.delete(url, params={'id': 'UExBWm5lblduZEx4Y084MWtCODdCdy1JbzRNcEhhUlBSdC4yODlGNEE0NkRGMEEzMEQy'})
-    print(req.status_code)
-    return redirect('/')
-
-
 @app.route('/join', methods=['GET', 'POST'])
 def join_room():
     code = request.form['code']
@@ -156,16 +140,26 @@ def search():
     return redirect(url_for('movie', hash_url=code))
 
 
+@app.route('/add', methods=['GET', 'POST'])
+def add():
+    code = request.args['url'].split('/')[-1]
+    uid = dbconnect.get_rooms()[code]
+    url = 'https://www.googleapis.com/youtube/v3/playlistItems?access_token=' + session['token']
+    pl = dbconnect.get_playlist(uid)
+    result = list()
+    for i in request.form:
+        req = requests.post(url, params={'part': 'snippet'},
+                            data=json.dumps({'snippet': {'playlistId': pl, 'resourceId': eval(i)}}))
+        result.append(req.json())
+    dbconnect.set_videos(uid, result)
+    return redirect(url_for('movie', hash_url=code))
+
+
 def get_search(q):
     url = 'https://www.googleapis.com/youtube/v3/search?key=' + apikey
     req = requests.get(url, {'part': 'snippet', 'maxResults': 10, 'q': q})
     if req.status_code == 200:
         return req.json()['items']
-
-
-# @app.route('/error_uchat')
-# def no_uchat():
-#     return render_template('html/uchatunavailable.html')
 
 
 def make_hash():

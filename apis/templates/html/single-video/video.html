@@ -227,13 +227,14 @@
                         <script>U=window.U=window.U||{},U.events=U.events||[],U.chat=function(n){return{on:function(e,t){U.events.push([n,e,t])},off:function(e){for(var t=U.events.length;t>0;)U.events[--t][0]==n&&U.events[t][1]==e&&U.events.splice(t,1)}}};</script>
                         <script>
                         U.chat('*').on('after.join', function(room, data){
-                        {#room.action.command('changeInfo', { 'nick': '준석' });#}
+                        room.action.command('changeInfo', { 'nick': '{{ session['name'] }}' });
                         });
                         </script>
                     </u-chat>
                 </div>
             </div>
 
+            {% if play %}
             <section class="mb-5">
                 <div class="d-flex align-items-center mb-4">
                     <h2 class="font-size-18 font-weight-medium text-gray-700 mb-0">Videos in playlist</h2>
@@ -256,7 +257,6 @@
                     {% endfor %}
                 </div>
             </section>
-
             <div class="space-1">
                 <div id="search-videos" class="d-flex align-items-center mb-4">
                     <h2 class="font-size-18 font-weight-medium text-gray-700 mb-0">Search videos</h2>
@@ -273,39 +273,44 @@
                         </div>
                     </form>
                 </div>
-                <section class="mb-5">
-                <div class="d-flex align-items-center mb-4">
-                    <h2 class="font-size-18 font-weight-medium text-gray-700 mb-0">Related Videos</h2>
-                    <div class="border-top col p-0 ml-3 border-gray-3600"></div>
-                </div>
-                <div class="row row-cols-2 row-cols-xl-5">
                 {% if search %}
-                    {% for i in search %}
-                    <div class="col mb-3">
-                        <div class="product">
-                            <div class="product-image mb-2 pb-1">
-                                <a class="d-block position-relative stretched-link">
-                                    <img class="img-fluid" src={{ i['snippet']['thumbnails']['medium']['url'] }} alt="Image-Description">
-                                </a>
-                            </div>
-                            <h6 class="product-title font-size-1 font-weight-bold mb-0">
-                                {{ i['snippet']['title'] }}
-                            </h6>
-                        </div>
+                <section class="mb-5">
+                    <div class="d-flex align-items-center mb-4">
+                        <h2 class="font-size-18 font-weight-medium text-gray-700 mb-0">Results</h2>
+                        <div class="border-top col p-0 ml-3 border-gray-3600"></div>
                     </div>
-                    {% endfor %}
-                {% endif %}
-                </div>
-            </section>
-
-{#                <form action="#" method="post" id="commentform" class="comment-form mb-6" novalidate="">#}
-{#                    <div class="form-group">#}
-{#                        <label class="input-label" for="exampleFormControlTextarea1">Your comment <span class="required">*</span></label>#}
-{#                        <textarea id="exampleFormControlTextarea1" class="form-control" rows="8"></textarea>#}
+                    <form class="js-validate" action={{ url_for('add', url=request.url) }} method="POST">
+                    <div class="row row-cols-2 row-cols-xl-5">
+                        {% for i in search %}
+                        <div class="col mb-3">
+                            <div class="product">
+                                <div class="product-image mb-2 pb-1">
+                                    <a class="d-block position-relative stretched-link">
+                                        <img class="img-fluid" src={{ i['snippet']['thumbnails']['medium']['url'] }} alt="Image-Description">
+                                    </a>
+                                </div>
+                                <h6 class="product-title font-size-1 font-weight-bold mb-0">
+                                    {{ i['snippet']['title'] }}
+                                </h6>
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" id="{{ i['id'] }}" class="custom-control-input" name="{{ i['id'] }}">
+                                        <label class="custom-control-label" for="{{ i['id'] }}">Add</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-sm btn-primary mt-4 px-4">ADD</button>
+                    </div>
+                    </form>
+                </section>
 {#                        <button class="btn btn-primary mt-4 px-4" type="button" name="button">SUBMIT</button>#}
-{#                    </div>#}
-{#                </form>#}
+                {% endif %}
             </div>
+            {% endif %}
         </div>
     </main>
     <!-- ========== END MAIN CONTENT ========== -->
