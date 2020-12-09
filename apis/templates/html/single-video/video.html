@@ -267,7 +267,7 @@
                         <div class="js-form-message mb-3">
                             <div class="input-group input-group-sm mb-2">
                                 <input type="text" class="form-control" name="search_video" id="search_video" placeholder="search" aria-label="search" required
-                                data-msg="Your code is invalid. Please try again.">
+                                data-msg="No input">
                                 <button type="submit" class="btn btn-sm btn-primary px-4">Search</button>
                             </div>
                         </div>
@@ -403,7 +403,7 @@
                         <div class="js-form-message mb-3">
                             <label class="input-label">Select Playlist</label>
                             <div class="input-group input-group-sm mb-2">
-                                <select name="playlist" id="playlist" required data-msg="Your code is invalid. Please try again.">
+                                <select name="playlist" id="playlist" required data-msg="none selected">
                                     <option value="">select</option>
                                     {% for i in playlists %}
                                     <option value={{ i['id'] }}>{{ i['snippet']['title'] }}</option>

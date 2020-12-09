@@ -1,7 +1,8 @@
 import json
 import pymysql
 
-db = pymysql.connect(host='database-2.ckxupymlkkbs.ap-northeast-2.rds.amazonaws.com', port=3306, user='root', passwd='kjs97871103', db='service', charset='utf8',
+db = pymysql.connect(host='database-2.ckxupymlkkbs.ap-northeast-2.rds.amazonaws.com', port=3306, user='root',
+                     passwd='kjs97871103', db='service', charset='utf8',
                      autocommit=True)
 
 
@@ -36,7 +37,7 @@ def get_rooms():
 
 def get_playlists(uid):
     cursor = db.cursor()
-    sql = "Select playlists from roomdata where uchatid = '{}'". format(uid)
+    sql = "Select playlists from roomdata where uchatid = '{}'".format(uid)
     cursor.execute(sql)
     result = list()
     for i in cursor.fetchall():
@@ -56,7 +57,7 @@ def get_playlist(uid):
 
 def get_videos(uid):
     cursor = db.cursor()
-    sql = "Select videos from roomdata where uchatid = '{}'". format(uid)
+    sql = "Select videos from roomdata where uchatid = '{}'".format(uid)
     cursor.execute(sql)
     result = list()
     for i in cursor.fetchall():
@@ -88,15 +89,19 @@ def set_playlist(uid, playlist):  # playlist 바꾸면 video 초기화
 
 def set_videos(uid, videos):
     cursor = db.cursor()
-    for i in videos:
-        i['snippet'].pop('description')
-        sql = "INSERT INTO roomdata (uchatid, videos) values('{}', '{}')".format(uid, json.dumps(i))
-        cursor.execute(sql)
+    for v in videos:  # json 이스케이프 및 ascii 예외처리
+        v['snippet'].pop('description')
+        v['snippet']['title'] = v['snippet']['title'].replace('/', '\/')
+        v['snippet']['title'] = v['snippet']['title'].replace('"', '\\"')
+        if v['snippet']['resourceId'] not in [i['snippet']['resourceId'] for i in get_videos(uid)]:
+            sql = "INSERT INTO roomdata (uchatid, videos) values('{}', '{}')".format(uid,
+                                                                                     json.dumps(v, ensure_ascii=False))
+            cursor.execute(sql)
     return
 
 
 def set_video(uid, video):
     cursor = db.cursor()
-    sql = "UPDATE room SET video='{}' WHERE uchatid = '{}'".format(json.dumps(video), uid)
+    sql = "UPDATE room SET video='{}' WHERE uchatid = '{}'".format(json.dumps(video, ensure_ascii=False), uid)
     cursor.execute(sql)
     return

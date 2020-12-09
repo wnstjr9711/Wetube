@@ -89,7 +89,7 @@ def get_playlist():  # 사용자 playlist 가져오기(없는경우 임의로 �
     url = 'https://www.googleapis.com/youtube/v3/playlists?access_token=' + session['token']
     req = requests.get(url, {'part': 'snippet', 'mine': 'true'})
     while 'items' not in req.json():
-        req = requests.get(url, {'part': 'snippet', 'mine': 'true'})
+        req = requests.get(url, {'part': 'snippet', 'maxResults': 20, 'mine': 'true'})
     result = req.json()['items']
     if not result:
         url2 = 'https://www.googleapis.com/youtube/v3/playlists?access_token=' + session['token']
@@ -101,7 +101,7 @@ def get_playlist():  # 사용자 playlist 가져오기(없는경우 임의로 �
 
 def get_playlistItems(playlist):
     url = 'https://www.googleapis.com/youtube/v3/playlistItems?access_token=' + session['token']
-    req = requests.get(url, params={'part': 'snippet', 'playlistId': playlist})
+    req = requests.get(url, params={'part': 'snippet', 'maxResults': 50, 'playlistId': playlist})
     if req.status_code == 404:  # playlist의 host가 아닌경우 가져올 수 없음
         return None
     while 'items' not in req.json():
