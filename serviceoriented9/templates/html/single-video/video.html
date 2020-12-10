@@ -120,6 +120,7 @@
                                     <!-- Blog - Submenu -->
                                     <div id="blogSubMenu" class="hs-sub-menu dropdown-menu" aria-labelledby="blogMegaMenu" style="min-width: 230px;">
                                         <a class="dropdown-item" href="javascript:;" data-toggle="modal" data-target="#codeModal">Insert Code</a>
+                                        <a class="dropdown-item" href="javascript:;" data-toggle="modal" data-target="#sendmailModal">Send Code</a>
                                     </div>
                                     <!-- End Submenu -->
                                 </li>
@@ -420,6 +421,37 @@
         </div>
     </div>
     <!-- End playlist Modal -->
+    <!-- Sendmail Modal -->
+    <div class="modal fade" id="sendmailModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <button type="button" class="close position-absolute top-0 right-0 z-index-2 mt-3 mr-3" data-dismiss="modal" aria-label="Close">
+                    <svg aria-hidden="true" class="mb-0" width="14" height="14" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="currentColor" d="M11.5,9.5l5-5c0.2-0.2,0.2-0.6-0.1-0.9l-1-1c-0.3-0.3-0.7-0.3-0.9-0.1l-5,5l-5-5C4.3,2.3,3.9,2.4,3.6,2.6l-1,1 C2.4,3.9,2.3,4.3,2.5,4.5l5,5l-5,5c-0.2,0.2-0.2,0.6,0.1,0.9l1,1c0.3,0.3,0.7,0.3,0.9,0.1l5-5l5,5c0.2,0.2,0.6,0.2,0.9-0.1l1-1 c0.3-0.3,0.3-0.7,0.1-0.9L11.5,9.5z"></path>
+                    </svg>
+                </button>
+                <!-- Body -->
+                <div class="modal-body">
+                    <form class="js-validate" action={{ url_for('send', url=request.url) }} method="POST">
+                        <!-- Input Group -->
+                        <div class="js-form-message mb-3">
+                            <label class="input-label">Send Code</label>
+                            <div class="input-group input-group-sm mb-2">
+                                <input type="email" class="form-control" name="send" id="send" placeholder="email" aria-label="email" required
+                                data-msg="Invalid email. Please try again.">
+                            </div>
+                        </div>
+                        <!-- End Input Group -->
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-sm btn-primary btn-block">Send Code</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- End Body -->
+            </div>
+        </div>
+    </div>
+    <!-- End Sendmail Modal -->
 
     <!-- Sidebar Navigation -->
     <aside id="sidebarContent" class="hs-unfold-content sidebar sidebar-left off-canvas-menu">

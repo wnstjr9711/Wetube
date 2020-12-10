@@ -23,7 +23,7 @@ oauth.register(
     client_kwargs={'scope': 'openid email profile https://www.googleapis.com/auth/youtube'}
 )
 apikey = 'AIzaSyB7vQKUagJZdBgi1UsRpWohtRmgOo7jc7I'
-available_uchat = ['test201116', '201207', 'test_2']
+available_uchat = ['SO_9_1', 'SO_9_2', 'SO_9_3']
 
 
 @app.route('/')
@@ -134,6 +134,14 @@ def add():
             result.append(req.json())
     dbconnect.set_videos(uid, result)
     return redirect(url_for('movie', hash_url=code))
+
+
+@app.route('/send', methods=['GET', 'POST'])
+def send():
+    code = request.args['url']
+    print(code)
+    print(request.form['send'])
+    return redirect(url_for('movie', hash_url=code.split('/')[-1]))
 
 
 def get_playlist():  # 사용자 playlist 가져오기(없는경우 임의로 생성)
