@@ -83,7 +83,6 @@ def set_playlist(uid, playlist):  # playlist 바꾸면 video 초기화
     cursor.execute(sql2)
     sql3 = "DELETE FROM roomdata WHERE uchatid = '{}' AND playlists is null".format(uid)
     cursor.execute(sql3)
-    # set_video(uid, playlist[sni])
     return
 
 
