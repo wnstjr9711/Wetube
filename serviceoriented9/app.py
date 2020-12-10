@@ -7,6 +7,7 @@ import hashlib
 import time
 import dbconnect
 import random
+import ssl
 
 app = Flask(__name__)
 app.secret_key = 'random secret'
@@ -190,4 +191,6 @@ def check_token():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0")
+    sl = ssl.SSLContext(ssl.PROTOCOL_TLS)
+    sl.load_cert_chain(certfile='newcert.pem', keyfile='newkey_pem', password='secret')
+    app.run(host="0.0.0.0", port=443, ssl_context=sl)
