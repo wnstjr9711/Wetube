@@ -78,6 +78,7 @@ def movie(hash_url):
                                items=dbconnect.get_videos(uid), selected=dbconnect.get_video(uid),
                                search=session.pop('search') if 'search' in session else None)
     else:        # 방생성
+        # uid = available_uchat.pop()
         uid = available_uchat[random.randint(0, 2)]
         playlists = get_playlist()
         dbconnect.create_roomTest(uid, hash_url, playlists)
@@ -128,6 +129,8 @@ def add():
         if eval(i) not in [i['snippet']['resourceId'] for i in dbconnect.get_videos(uid)]:
             req = requests.post(url, params={'part': 'snippet'},
                                 data=json.dumps({'snippet': {'playlistId': pl, 'resourceId': eval(i)}}))
+            if req.status_code == 403:
+                break
             result.append(req.json())
     dbconnect.set_videos(uid, result)
     return redirect(url_for('movie', hash_url=code))

@@ -65,12 +65,13 @@
   </component>
   <component name="RunManager">
     <configuration name="serviceoriented9" type="Python.FlaskServer">
+      <option name="flaskDebug" value="true" />
       <module name="serviceoriented9" />
       <option name="target" value="$PROJECT_DIR$/app.py" />
       <option name="targetType" value="PATH" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\wnstj\anaconda3\envs\apis\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -88,7 +89,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607560477132</updated>
-      <workItem from="1607560479052" duration="2441000" />
+      <workItem from="1607560479052" duration="2819000" />
+      <workItem from="1607563723700" duration="116000" />
+      <workItem from="1607570115845" duration="13568000" />
     </task>
     <servers />
   </component>
@@ -105,26 +108,31 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="2517" height="401" key="GridCell.Tab.0.bottom" timestamp="1607562398020">
+    <state x="734" y="355" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607593686037">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1607562398020" />
-    <state width="2517" height="401" key="GridCell.Tab.0.center" timestamp="1607562398020">
+    <state x="734" y="355" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1607593686037" />
+    <state width="2517" height="401" key="GridCell.Tab.0.bottom" timestamp="1607593688043">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="401" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1607562398020" />
-    <state width="2517" height="401" key="GridCell.Tab.0.left" timestamp="1607562398019">
+    <state width="2517" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1607593688043" />
+    <state width="2517" height="401" key="GridCell.Tab.0.center" timestamp="1607593688043">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="401" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1607562398019" />
-    <state width="2517" height="401" key="GridCell.Tab.0.right" timestamp="1607562398020">
+    <state width="2517" height="401" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1607593688043" />
+    <state width="2517" height="401" key="GridCell.Tab.0.left" timestamp="1607593688043">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2517" height="401" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1607562398020" />
+    <state width="2517" height="401" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1607593688043" />
+    <state width="2517" height="401" key="GridCell.Tab.0.right" timestamp="1607593688043">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state width="2517" height="401" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1607593688043" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/serviceoriented9$serviceoriented9.coverage" NAME="serviceoriented9 Coverage Results" MODIFIED="1607562398010" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/serviceoriented9$serviceoriented9.coverage" NAME="serviceoriented9 Coverage Results" MODIFIED="1607593688033" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
