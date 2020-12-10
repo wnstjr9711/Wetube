@@ -87,21 +87,23 @@ def set_playlist(uid, playlist):  # playlist 바꾸면 video 초기화
     return
 
 
+# video 제목에 존재하는 json 이스케이프 및 unicode -> ascii 예외처리
 def set_videos(uid, videos):
     cursor = db.cursor()
-    for v in videos:  # json 이스케이프 및 ascii 예외처리
+    for v in videos:
         v['snippet'].pop('description')
         v['snippet']['title'] = v['snippet']['title'].replace('/', '\/')
         v['snippet']['title'] = v['snippet']['title'].replace('"', '\\"')
-        if v['snippet']['resourceId'] not in [i['snippet']['resourceId'] for i in get_videos(uid)]:
-            sql = "INSERT INTO roomdata (uchatid, videos) values('{}', '{}')".format(uid,
-                                                                                     json.dumps(v, ensure_ascii=False))
-            cursor.execute(sql)
+        sql = "INSERT INTO roomdata (uchatid, videos) values('{}', '{}')".format(uid,
+                                                                                 json.dumps(v, ensure_ascii=False))
+        cursor.execute(sql)
     return
 
 
 def set_video(uid, video):
     cursor = db.cursor()
+    video['snippet']['title'] = video['snippet']['title'].replace('/', '\/')
+    video['snippet']['title'] = video['snippet']['title'].replace('"', '\\"')
     sql = "UPDATE room SET video='{}' WHERE uchatid = '{}'".format(json.dumps(video, ensure_ascii=False), uid)
     cursor.execute(sql)
     return

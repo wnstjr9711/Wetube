@@ -25,6 +25,7 @@ oauth.register(
 apikey = 'AIzaSyB7vQKUagJZdBgi1UsRpWohtRmgOo7jc7I'
 available_uchat = ['test201116', '201207', 'test_2']
 
+
 @app.route('/')
 def home():
     if 'token' in session:
@@ -85,30 +86,6 @@ def movie(hash_url):
                                code=make_hash(), playlists=playlists, play=None)
 
 
-def get_playlist():  # 사용자 playlist 가져오기(없는경우 임의로 생성)
-    url = 'https://www.googleapis.com/youtube/v3/playlists?access_token=' + session['token']
-    req = requests.get(url, {'part': 'snippet', 'mine': 'true'})
-    while 'items' not in req.json():
-        req = requests.get(url, {'part': 'snippet', 'maxResults': 20, 'mine': 'true'})
-    result = req.json()['items']
-    if not result:
-        url2 = 'https://www.googleapis.com/youtube/v3/playlists?access_token=' + session['token']
-        req2 = requests.post(url2, params={'part': 'snippet'}, data=json.dumps({'snippet': {
-            'title': 'new'}}))
-        result.append(req2.json())
-    return result
-
-
-def get_playlistItems(playlist):
-    url = 'https://www.googleapis.com/youtube/v3/playlistItems?access_token=' + session['token']
-    req = requests.get(url, params={'part': 'snippet', 'maxResults': 50, 'playlistId': playlist})
-    if req.status_code == 404:  # playlist의 host가 아닌경우 가져올 수 없음
-        return None
-    while 'items' not in req.json():
-        req = requests.get(url, params={'part': 'snippet', 'playlistId': playlist})
-    return req.json()['items']
-
-
 @app.route('/join', methods=['GET', 'POST'])
 def join_room():
     code = request.form['code']
@@ -148,11 +125,36 @@ def add():
     pl = dbconnect.get_playlist(uid)
     result = list()
     for i in request.form:
-        req = requests.post(url, params={'part': 'snippet'},
-                            data=json.dumps({'snippet': {'playlistId': pl, 'resourceId': eval(i)}}))
-        result.append(req.json())
+        if eval(i) not in [i['snippet']['resourceId'] for i in dbconnect.get_videos(uid)]:
+            req = requests.post(url, params={'part': 'snippet'},
+                                data=json.dumps({'snippet': {'playlistId': pl, 'resourceId': eval(i)}}))
+            result.append(req.json())
     dbconnect.set_videos(uid, result)
     return redirect(url_for('movie', hash_url=code))
+
+
+def get_playlist():  # 사용자 playlist 가져오기(없는경우 임의로 생성)
+    url = 'https://www.googleapis.com/youtube/v3/playlists?access_token=' + session['token']
+    req = requests.get(url, {'part': 'snippet', 'mine': 'true'})
+    while 'items' not in req.json():
+        req = requests.get(url, {'part': 'snippet', 'maxResults': 20, 'mine': 'true'})
+    result = req.json()['items']
+    if not result:
+        url2 = 'https://www.googleapis.com/youtube/v3/playlists?access_token=' + session['token']
+        req2 = requests.post(url2, params={'part': 'snippet'}, data=json.dumps({'snippet': {
+            'title': 'new'}}))
+        result.append(req2.json())
+    return result
+
+
+def get_playlistItems(playlist):
+    url = 'https://www.googleapis.com/youtube/v3/playlistItems?access_token=' + session['token']
+    req = requests.get(url, params={'part': 'snippet', 'maxResults': 50, 'playlistId': playlist})
+    if req.status_code == 404:  # playlist의 host가 아닌경우 가져올 수 없음
+        return None
+    while 'items' not in req.json():
+        req = requests.get(url, params={'part': 'snippet', 'playlistId': playlist})
+    return req.json()['items']
 
 
 def get_search(q):
