@@ -8,6 +8,16 @@ import time
 import dbconnect
 import random
 
+import base64
+from email.mime.audio import MIMEAudio
+from email.mime.base import MIMEBase
+from email.mime.image import MIMEImage
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+import mimetypes
+import os
+import sys
+
 app = Flask(__name__)
 app.secret_key = 'random secret'
 oauth = OAuth(app)
@@ -20,7 +30,7 @@ oauth.register(
     authorize_url='https://accounts.google.com/o/oauth2/auth',
     authorize_params=None,
     api_base_url='https://www.googleapis.com/oauth2/v1/',
-    client_kwargs={'scope': 'openid email profile https://www.googleapis.com/auth/youtube'}
+    client_kwargs={'scope': 'openid email profile https://www.googleapis.com/auth/youtube https://mail.google.com'}
 )
 apikey = 'AIzaSyB7vQKUagJZdBgi1UsRpWohtRmgOo7jc7I'
 available_uchat = ['SO_9_1', 'SO_9_2', 'SO_9_3']
@@ -188,6 +198,61 @@ def check_token():
     else:
         return True
 
+# Gmail 보내기
+@app.route('/send_mail')
+# Message 생성 함수
+def CreateMessage(sender, to, subject, message_text=None, attachment_path=None):
+    """Create a message for an email.
+    Args:
+        sender: Email address of the sender.
+        to: Email address of the receiver.
+        subject: The subject of the email message.
+        message_text: The text of the email message.
+        attachment_path: Full path for attachment (dir+filename)
+        Returns: An object containing a base64url encoded email object.
+        """
+    message = MIMEMultipart()
+    message['to'] = to
+    message['from'] = sender
+    message['subject'] = subject
+#    message['subject'] = "WeTube로 초대합니다."
+
+    #message['cc'] = cc
+    # #message['bcc'] = cc
+    # #msg.add_header('reply-to', return_addr)
+
+    if message_text != None:
+        msg = MIMEText(message_text, 'html')
+        message.attach(msg)
+    try:
+        return {'raw': base64.urlsafe_b64encode(message.as_string())}
+
+    except:
+        return {'raw': base64.urlsafe_b64encode(message.as_bytes()).decode('utf8')}
+
+# Message 전송 함수
+def sendmail(to, subject, message_text_html, attachment=None):
+#    user_id = 'UExBWm5lblduZEx4Y084MWtCODdCdy1JbzRNcEhhUlBSdC4yODlGNEE0NkRGMEEzMEQy'
+    user_id = "wnstjr8711@gmail.com"
+    url = 'https://www.googleapis.com/gmail/v1/users/'+user_id+'/messages/send'
+
+    request_header = { "Content-Type": "application/json",
+                       "Authorization": "Bearer " + session['token'],
+                       "X-GFE-SSL": "yes"
+                       }
+    payload = CreateMessage(user_id, to, subject, message_text_html)
+
+# validate payload on https://developers.google.com/gmail/api/v1/reference/users/messages/send
+# print (payload)
+# exit(1)
+    response = requests.post(url, headers=request_header, data=json.dumps(payload))
+    print ('*** Error *** : sendmail fail')
+    print(response)
+    print(response.text)
+
+    return redirect('/')
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0")
+    sendmail('maxczs@naver.com', 'subject_test', 'message_test')
