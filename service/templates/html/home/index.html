@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Title -->
+    <title>9조 Website Template</title>
+
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/static/favicon.ico">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="/static/assets/vendor/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="/static/assets/vendor/hs-mega-menu/dist/hs-mega-menu.min.css">
+    <link rel="stylesheet" href="/static/assets/vendor/dzsparallaxer/dzsparallaxer.css">
+    <link rel="stylesheet" href="/static/assets/vendor/cubeportfolio/css/cubeportfolio.min.css">
+    <link rel="stylesheet" href="/static/assets/vendor/aos/dist/aos.css">
+    <link rel="stylesheet" href="/static/assets/vendor/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="/static/assets/vendor/fancybox/dist/jquery.fancybox.css">
+    <link rel="stylesheet" href="/static/assets/vendor/select2/dist/css/select2.min.css">
+
+    <!-- CSS Vodi Template -->
+    <link rel="stylesheet" href="/static/assets/css/theme.css">
+</head>
+<body>
+    <!-- ========== HEADER ========== -->
+    <header id="header" class="header left-aligned-navbar"
+        data-hs-header-options='{
+            "fixMoment": 1000,
+            "fixEffect": "slide"
+        }'>
+        <div class="header-section shadow-soft">
+            <div id="logoAndNav" class="container-fluid px-md-5">
+                <!-- Nav -->
+                <nav class="js-mega-menu navbar navbar-expand-xl py-0 position-static justify-content-start">
+                    <!-- Responsive Toggle Button -->
+                    <button type="button" class="navbar-toggler btn btn-icon btn-sm rounded-circle mr-2"
+                        aria-label="Toggle navigation"
+                        aria-expanded="false"
+                        aria-controls="navBar"
+                        data-toggle="collapse"
+                        data-target="#navBar">
+                        <span class="navbar-toggler-default">
+                            <svg width="14" height="14" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="currentColor" d="M17.4,6.2H0.6C0.3,6.2,0,5.9,0,5.5V4.1c0-0.4,0.3-0.7,0.6-0.7h16.9c0.3,0,0.6,0.3,0.6,0.7v1.4C18,5.9,17.7,6.2,17.4,6.2z M17.4,14.1H0.6c-0.3,0-0.6-0.3-0.6-0.7V12c0-0.4,0.3-0.7,0.6-0.7h16.9c0.3,0,0.6,0.3,0.6,0.7v1.4C18,13.7,17.7,14.1,17.4,14.1z"/>
+                            </svg>
+                        </span>
+                        <span class="navbar-toggler-toggled">
+                            <svg width="14" height="14" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="currentColor" d="M11.5,9.5l5-5c0.2-0.2,0.2-0.6-0.1-0.9l-1-1c-0.3-0.3-0.7-0.3-0.9-0.1l-5,5l-5-5C4.3,2.3,3.9,2.4,3.6,2.6l-1,1 C2.4,3.9,2.3,4.3,2.5,4.5l5,5l-5,5c-0.2,0.2-0.2,0.6,0.1,0.9l1,1c0.3,0.3,0.7,0.3,0.9,0.1l5-5l5,5c0.2,0.2,0.6,0.2,0.9-0.1l1-1 c0.3-0.3,0.3-0.7,0.1-0.9L11.5,9.5z"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <!-- End Responsive Toggle Button -->
+
+                    <!-- Unfold (Sidebar) -->
+                    <div class="hs-unfold d-none d-xl-block">
+                        <a class="js-hs-unfold-invoker mr-4" href="javascript:;"
+                            data-hs-unfold-options='{
+                                "target": "#sidebarContent",
+                                "type": "css-animation",
+                                "animationIn": "fadeInLeft",
+                                "animationOut": "fadeOutLeft",
+                                "hasOverlay": "rgba(55, 125, 255, 0.1)",
+                                "smartPositionOff": true
+                            }'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="13" style="fill: #97979f;"><path d="M0 13L0 11.4 16 11.4 16 13 0 13ZM0 5.7L16 5.7 16 7.3 0 7.3 0 5.7ZM0 0L16 0 16 1.6 0 1.6 0 0Z"></path></svg>
+                        </a>
+                    </div>
+                    <!-- End Unfold (Sidebar) -->
+
+                    <!-- Logo -->
+                    <a class="navbar-brand w-auto mr-xl-5 mr-wd-8" href="/" aria-label="Vodi">
+                        <svg version="1.1" width="103" height="40px">
+                            <linearGradient id="vodi-gr" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0" style="stop-color:#2A4999"></stop>
+                                <stop offset="1" style="stop-color:#2C9CD4"></stop>
+                            </linearGradient>
+                            <g class="vodi-gr">
+                                <path class="vodi-svg0" d="M72.8,12.7c0-2.7,0-1.8,0-4.4c0-0.9,0-1.8,0-2.8C73,3,74.7,1.4,77,1.4c2.3,0,4.1,1.8,4.2,4.2c0,1,0,2.1,0,3.1
+                                c0,6.5,0,9.4,0,15.9c0,4.7-1.7,8.8-5.6,11.5c-4.5,3.1-9.3,3.5-14.1,0.9c-4.7-2.5-7.1-6.7-7-12.1c0.1-7.8,6.3-13.6,14.1-13.2
+                                c0.7,0,1.4,0.2,2.1,0.3C71.3,12.2,72,12.4,72.8,12.7z M67.8,19.8c-2.9,0-5.2,2.2-5.2,5c0,2.9,2.3,5.3,5.2,5.3
+                                c2.8,0,5.2-2.4,5.2-5.2C73,22.2,70.6,19.8,67.8,19.8z
+                                M39.9,38.6c-7.3,0-13.3-6.1-13.3-13.5c0-7.5,5.9-13.4,13.4-13.4c7.5,0,13.4,6,13.4,13.5
+                                C53.4,32.6,47.4,38.6,39.9,38.6z M39.9,30.6c3.2,0,5.6-2.3,5.6-5.6c0-3.2-2.3-5.5-5.5-5.5c-3.2,0-5.6,2.2-5.6,5.4
+                                C34.4,28.2,36.7,30.6,39.9,30.6z
+                                M14.6,27c0.6-1.4,1.1-2.6,1.6-3.8c1.2-2.9,2.5-5.8,3.7-8.8c0.7-1.7,2-2.8,4-2.7c3,0,4.9,2.6,3.8,5.4
+                                c-0.5,1.3-1.2,2.6-1.8,3.9c-2.4,5-4.9,10-7.3,15c-0.8,1.6-2,2.6-3.9,2.6c-2,0-3.3-0.8-4.2-2.6c-2.7-5.6-5.3-11.1-8-16.7
+                                c-0.3-0.7-0.6-1.3-0.9-2c-0.8-1.8-0.3-3.7,1.1-4.8c1.5-1.2,4-1.3,5.3,0c0.7,0.6,1.2,1.5,1.6,2.3C11.3,18.8,12.9,22.7,14.6,27z
+                                M90.9,25.1c0,3.1,0,6.2,0,9.4c0,1.9-1.2,3.4-2.9,4c-1.7,0.5-3.5,0-4.5-1.6c-0.5-0.8-0.8-1.8-0.8-2.6
+                                c-0.1-6.1-0.1-11.3,0-17.5c0-2.2,1.5-3.9,3.5-4.2c2.1-0.3,4.1,0.9,4.7,2.9c0.1,0.5,0.2,1.1,0.2,1.6C90.9,20,90.9,22.1,90.9,25.1
+                                C90.9,25.1,90.9,25.1,90.9,25.1z
+                                M90.2,4.7L86,2.3c-1.3-0.8-3,0.2-3,1.7v4.8c0,1.5,1.7,2.5,3,1.7l4.2-2.4C91.5,7.4,91.5,5.5,90.2,4.7z"></path>
+                            </g>
+                        </svg>
+                    </a>
+                    <!-- End Logo -->
+
+                    <!-- Navigation -->
+                    <div id="navBar" class="collapse navbar-collapse order-1 order-xl-0">
+                        <div class="navbar-body header-abs-top-inner">
+                            <ul class="navbar-nav">
+                                <!-- 방생성 -->
+                                <li class="hs-has-sub-menu navbar-nav-item">
+                                    <a id="pagesMegaMenu" class="hs-mega-menu-invoker nav-link nav-link-toggle font-secondary" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="pagesSubMenu">Create Room</a>
+                                    <!-- 방생성 - Submenu -->
+                                    <div id="pagesSubMenu" class="hs-sub-menu dropdown-menu" aria-labelledby="pagesMegaMenu">
+                                        {% if session %}
+                                        <a class="dropdown-item font-size-14" href={{ url_for('movie', hash_url=code) }}>Create</a>
+                                        {% else %}
+                                        <a class="dropdown-item font-size-14">로그인 후 이용가능합니다.</a>
+                                        {% endif %}
+                                    </div>
+                                    <!-- End Submenu -->
+                                </li>
+                                <!-- End 방생성 -->
+                                <!-- 방참여 -->
+                                <li class="hs-has-sub-menu navbar-nav-item">
+                                    <a id="blogMegaMenu" class="hs-mega-menu-invoker nav-link nav-link-toggle font-secondary" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">Join Room</a>
+                                    <!-- Blog - Submenu -->
+                                    <div id="blogSubMenu" class="hs-sub-menu dropdown-menu" aria-labelledby="blogMegaMenu" style="min-width: 230px;">
+                                        {% if session %}
+                                        <a class="dropdown-item" href="javascript:;" data-toggle="modal" data-target="#codeModal">Insert Code</a>
+                                        {% else %}
+                                        <a class="dropdown-item font-size-14">로그인 후 이용가능합니다.</a>
+                                        {% endif %}
+                                    </div>
+                                    <!-- End Submenu -->
+                                </li>
+                                <!-- End 방참여 -->
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- End Navigation -->
+                    <div class="d-flex align-items-center ml-auto">
+                        <div class="d-inline-flex ml-md-5">
+                            <ul class="d-flex list-unstyled mb-0 align-items-center">
+                                <div class="font-size-15 flex-shrink-0 flex-shrink-md-1">{{ session['email'] }}</div>
+                                <li class="col pr-xl-0 px-2 px-sm-3">
+                                    <!-- Unfold (Dropdown) -->
+                                    <div class="hs-unfold">
+                                        <a class="js-hs-unfold-invoker dropdown-nav-link dropdown-toggle py-4 position-relative d-flex align-items-center" href="javascript:;"
+                                            data-hs-unfold-options='{
+                                                "target": "#basicDropdownHover",
+                                                "type": "css-animation",
+                                                "event": "click"
+                                            }'>
+                                            <svg width="32px" height="32px">
+                                                {% if not session %}
+                                                <image x="0px" y="0px" width="32px" height="32px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACB1BMVEW7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu7vLu3t7eys7KztLO4uLi6u7q0tbSxsrG2t7awsrC7vLu8vLy1trW8vby1tbWysrK6urq3uLe5urm9vr24ubitrq2wsbCsrazV1dXs7Oz29vb39/fw8PDe3t6vsK/v7+/////5+vnLy8urrKuxsbHGx8aur67k5OT4+Pizs7P9/f3R0tGurq7Oz87j4+OsrqzU1NTo6OiusK7+/v7k5eT4+fjGyMa7u7v6+vrMzMyrq6u+vr7Ky8ri4uLt7e3u7u7m5+bT1NOwsLC+v77Q0NDe397f39/T09O/v7/FxsX5+fn09PS9vb37+/v09fTNzs3g4ODh4uHX2Nf8/PzY2djIyMjIycjU1dTl5uXx8fHm5ubV1tVi3+TsAAAAUnRSTlMADleWxOHwxphZESftmiuDiBvN0iAq8TAW9xzX340dI5ymCPj9VV+lydDl5/P05srRnqdjCvr+EKCqipTd5Pb7IfI31NmLkAQvojIVn+PLoWIYYNJBTgAAAAFiS0dEca8HXOIAAAAHdElNRQfjBQECDwMxTbKCAAACG0lEQVQ4y21T90PTQBQ+RKpY3FisExcuEHEvFPdeXLikJLnakjbVgjESSEutqIiKIo66R90L/SNtbzTp+H66e9/37r17A4ACqqZUT63xeGqmTa+dAcrhra7rhEIXQl2iFPDMnFXKz0bdoqzIBIosdqM5RfTceYKKZRdwUJhf7/AL6iD35lAU6Gvg/ELfJe4eCgd62FGT/IuYYDGkPI5E9RASYiK9anAJyw8yFx1evhLv7buKYwoJqMCleX4ZUskVG+iaSXC936ICFS3PCRoHyItKUOw1OQZtYsMDKwBYuUqgEaxEgTeTQxFiE1dXgTWdlFdxyhGYN9LM2gQaJVoB46aLN4ctWg19LVjH/nDrtltwJ42IFa4HG8JUMFLpBTm8ETSHeA53K+SAmkELE8jWqMPfY7/ICzYFWHfcdbhv40KIVok3Z+RBH6XHHj7ivYWbQZvOL+N6+vHEk6fPnoejCh8dfQuo5SHkjB158fLV6zdvg3aGj4e6FWzbTkqtida74SQN8T4xGBM0UuodOwHYlW+WZosT7jok1HROgfXduW7WI1HRoviDWYT4eEzLtdubH4g98GOmZ8wsQVY2NLiXjtQ+Q/pkliE+ZLTzod/fb1bA5wMdfKwbDn4p57/6DzmL0XH42/diOvXjiLdot47+TLgkqdFfx46XLOeJtpbffyaT2Wxy8u8//8lTFfb7dNOZ1rMeX/u58xcuOtb/keQ/CDzeyUsAAAAASUVORK5CYII=">
+                                                </image>
+                                                {% else %}
+                                                <image x="0px" y="0px" width="32px" height="32px" xlink:href="{{ session['picture']}}">
+                                                </image>
+                                                {% endif %}
+                                            </svg>
+
+                                        </a>
+                                        <div id="basicDropdownHover" class="hs-unfold-content dropdown-menu my-account-dropdown">
+                                            {% if not session %}
+                                            <!-- Modal Trigger -->
+                                            <a class="dropdown-item" href="javascript:;" data-toggle="modal" data-target="#loginModal">Sign in</a>
+                                            {% else %}
+                                            <a class="dropdown-item" href={{ url_for('logout') }}>Sign out</a>
+                                            {% endif %}
+                                            <!-- End Modal Trigger -->
+                                        </div>
+
+                                    </div>
+                                    <!-- End Unfold (Dropdown) -->
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- End Nav -->
+            </div>
+        </div>
+    </header>
+    <!-- ========== END HEADER ========== -->
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main id="content">
+        <div class="container">
+            <div class="col-lg">
+                <div class="max-w-md-1170 ml-auto my-6 mb-lg-8 pb-lg-1">
+                    <!--Hero Slider -->
+                    <div class="mb-6 pb-xl-1">
+                        <div class="js-slick-carousel"
+                            data-hs-slick-carousel-options='{
+                               "dots": false,
+                               "dotsClass": "slick-pagination slick-pagination-v2 mt-2"
+                            }'>
+                            <div class="bg-img-hero min-h-270rem" style="background-image: url(/static/weTubelogo.png);"></div>
+                        </div>
+                    </div>
+                    <h5 class="font-size-30 text-indigo" align="middle">9조</h5>
+                    <!--End Hero Slider -->
+                    <section>
+                        <div class="home-section mb-5">
+                            <header class="d-md-flex align-items-center justify-content-between mb-3 mb-lg-1 pb-2 w-100 border-bottom">
+                                <h6 class="d-block position-relative font-size-24 font-weight-medium overflow-md-hidden m-0 text-gray-700">Service</h6>
+                            </header>
+                        </div>
+                            <div class="border-bottom mb-4 mb-md-3 pb-4">
+                                <img class="img-fluid" src="/static/main.png" alt="Image-Desc">
+                            </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- ========== END MAIN CONTENT ========== -->
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="">
+        <div class="bg-gray-4000">
+            <div class="container px-md-5">
+                <div class="d-flex flex-wrap align-items-center pt-6 pb-3d border-bottom mb-7 border-gray-4100">
+                    <a href="#" class="mb-4 mb-md-0 mr-auto">
+                        <svg version="1.1" width="92" height="40px">
+                            <g fill="#fff">
+                                <path class="vodi-svg0" d="M72.8,12.7c0-2.7,0-1.8,0-4.4c0-0.9,0-1.8,0-2.8C73,3,74.7,1.4,77,1.4c2.3,0,4.1,1.8,4.2,4.2c0,1,0,2.1,0,3.1
+                                c0,6.5,0,9.4,0,15.9c0,4.7-1.7,8.8-5.6,11.5c-4.5,3.1-9.3,3.5-14.1,0.9c-4.7-2.5-7.1-6.7-7-12.1c0.1-7.8,6.3-13.6,14.1-13.2
+                                c0.7,0,1.4,0.2,2.1,0.3C71.3,12.2,72,12.4,72.8,12.7z M67.8,19.8c-2.9,0-5.2,2.2-5.2,5c0,2.9,2.3,5.3,5.2,5.3
+                                c2.8,0,5.2-2.4,5.2-5.2C73,22.2,70.6,19.8,67.8,19.8z
+                                M39.9,38.6c-7.3,0-13.3-6.1-13.3-13.5c0-7.5,5.9-13.4,13.4-13.4c7.5,0,13.4,6,13.4,13.5
+                                C53.4,32.6,47.4,38.6,39.9,38.6z M39.9,30.6c3.2,0,5.6-2.3,5.6-5.6c0-3.2-2.3-5.5-5.5-5.5c-3.2,0-5.6,2.2-5.6,5.4
+                                C34.4,28.2,36.7,30.6,39.9,30.6z
+                                M14.6,27c0.6-1.4,1.1-2.6,1.6-3.8c1.2-2.9,2.5-5.8,3.7-8.8c0.7-1.7,2-2.8,4-2.7c3,0,4.9,2.6,3.8,5.4
+                                c-0.5,1.3-1.2,2.6-1.8,3.9c-2.4,5-4.9,10-7.3,15c-0.8,1.6-2,2.6-3.9,2.6c-2,0-3.3-0.8-4.2-2.6c-2.7-5.6-5.3-11.1-8-16.7
+                                c-0.3-0.7-0.6-1.3-0.9-2c-0.8-1.8-0.3-3.7,1.1-4.8c1.5-1.2,4-1.3,5.3,0c0.7,0.6,1.2,1.5,1.6,2.3C11.3,18.8,12.9,22.7,14.6,27z
+                                M90.9,25.1c0,3.1,0,6.2,0,9.4c0,1.9-1.2,3.4-2.9,4c-1.7,0.5-3.5,0-4.5-1.6c-0.5-0.8-0.8-1.8-0.8-2.6
+                                c-0.1-6.1-0.1-11.3,0-17.5c0-2.2,1.5-3.9,3.5-4.2c2.1-0.3,4.1,0.9,4.7,2.9c0.1,0.5,0.2,1.1,0.2,1.6C90.9,20,90.9,22.1,90.9,25.1
+                                C90.9,25.1,90.9,25.1,90.9,25.1z
+                                M90.2,4.7L86,2.3c-1.3-0.8-3,0.2-3,1.7v4.8c0,1.5,1.7,2.5,3,1.7l4.2-2.4C91.5,7.4,91.5,5.5,90.2,4.7z"></path>
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+                <div class="row pb-5">
+                </div>
+            </div>
+        </div>
+        <div class="bg-gray-4300">
+            <div class="container px-md-5">
+                <div class="text-center d-md-flex flex-wrap align-items-center py-3">
+                    <p class="font-size-13 text-gray-6800 mx-auto mb-0">Copyright © 2020, Vodi. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ========== END FOOTER ========== -->
+
+    <!-- ========== SECONDARY CONTENTS ========== -->
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <button type="button" class="close position-absolute top-0 right-0 z-index-2 mt-3 mr-3" data-dismiss="modal" aria-label="Close">
+                    <svg aria-hidden="true" class="mb-0" width="14" height="14" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="currentColor" d="M11.5,9.5l5-5c0.2-0.2,0.2-0.6-0.1-0.9l-1-1c-0.3-0.3-0.7-0.3-0.9-0.1l-5,5l-5-5C4.3,2.3,3.9,2.4,3.6,2.6l-1,1 C2.4,3.9,2.3,4.3,2.5,4.5l5,5l-5,5c-0.2,0.2-0.2,0.6,0.1,0.9l1,1c0.3,0.3,0.7,0.3,0.9,0.1l5-5l5,5c0.2,0.2,0.6,0.2,0.9-0.1l1-1 c0.3-0.3,0.3-0.7,0.1-0.9L11.5,9.5z"></path>
+                    </svg>
+                </button>
+                <!-- Body -->
+                <div class="modal-body">
+                    <form class="js-validate">
+                        <!-- Login -->
+                        <div id="login">
+                            <!-- Title -->
+                            <div class="text-center mb-7">
+                                <h3 class="mb-0">Sign In to Vodi</h3>
+                                <p>Login to manage your account.</p>
+                            </div>
+                            <!-- End Title -->
+                            <a class="btn btn-sm btn-ghost-secondary btn-block mb-2" href={{ url_for('login') }}>
+                                <span class="d-flex justify-content-center align-items-center">
+                                    <i class="fab fa-google mr-2"></i>
+                                    Sign In with Google
+                                </span>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+                <!-- End Body -->
+            </div>
+        </div>
+    </div>
+    <!-- End Login Modal -->
+    <!-- JoinCode Modal -->
+    <div class="modal fade" id="codeModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <button type="button" class="close position-absolute top-0 right-0 z-index-2 mt-3 mr-3" data-dismiss="modal" aria-label="Close">
+                    <svg aria-hidden="true" class="mb-0" width="14" height="14" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="currentColor" d="M11.5,9.5l5-5c0.2-0.2,0.2-0.6-0.1-0.9l-1-1c-0.3-0.3-0.7-0.3-0.9-0.1l-5,5l-5-5C4.3,2.3,3.9,2.4,3.6,2.6l-1,1 C2.4,3.9,2.3,4.3,2.5,4.5l5,5l-5,5c-0.2,0.2-0.2,0.6,0.1,0.9l1,1c0.3,0.3,0.7,0.3,0.9,0.1l5-5l5,5c0.2,0.2,0.6,0.2,0.9-0.1l1-1 c0.3-0.3,0.3-0.7,0.1-0.9L11.5,9.5z"/>
+                    </svg>
+                </button>
+                <!-- Body -->
+                <div class="modal-body">
+                    <form class="js-validate" action="/join" method="post">
+                            <!-- Input Group -->
+                            <div class="js-form-message mb-3">
+                                <label class="input-label">Insert Code</label>
+                                <div class="input-group input-group-sm mb-2">
+                                    <input type="text" class="form-control" name="code" id="joincode" placeholder="code" aria-label="code" required
+                                    data-msg="Your code is invalid. Please try again.">
+                                </div>
+                            </div>
+                            <!-- End Input Group -->
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-sm btn-primary btn-block">Join Room</button>
+                            </div>
+                    </form>
+                </div>
+                <!-- End Body -->
+            </div>
+        </div>
+    </div>
+    <!-- End JoinCode Modal -->
+    <!-- Sidebar Navigation -->
+    <aside id="sidebarContent" class="hs-unfold-content sidebar sidebar-left off-canvas-menu">
+        <div class="sidebar-scroller">
+            <div class="sidebar-container">
+                <div class="sidebar-footer-offset" style="padding-bottom: 7rem;">
+                    <!-- Toggle Button -->
+                    <div class="d-flex justify-content-end align-items-center py-2 px-4 border-bottom">
+                        <!-- Logo -->
+                        <a class="navbar-brand mr-auto" href="/" aria-label="Vodi">
+                            <svg version="1.1" width="103" height="40px">
+                                <linearGradient id="vodi-gr6" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0" style="stop-color:#2A4999"></stop>
+                                    <stop offset="1" style="stop-color:#2C9CD4"></stop>
+                                </linearGradient>
+                                <g class="vodi-gr">
+                                    <path class="vodi-svg0" d="M72.8,12.7c0-2.7,0-1.8,0-4.4c0-0.9,0-1.8,0-2.8C73,3,74.7,1.4,77,1.4c2.3,0,4.1,1.8,4.2,4.2c0,1,0,2.1,0,3.1
+                                    c0,6.5,0,9.4,0,15.9c0,4.7-1.7,8.8-5.6,11.5c-4.5,3.1-9.3,3.5-14.1,0.9c-4.7-2.5-7.1-6.7-7-12.1c0.1-7.8,6.3-13.6,14.1-13.2
+                                    c0.7,0,1.4,0.2,2.1,0.3C71.3,12.2,72,12.4,72.8,12.7z M67.8,19.8c-2.9,0-5.2,2.2-5.2,5c0,2.9,2.3,5.3,5.2,5.3
+                                    c2.8,0,5.2-2.4,5.2-5.2C73,22.2,70.6,19.8,67.8,19.8z
+                                    M39.9,38.6c-7.3,0-13.3-6.1-13.3-13.5c0-7.5,5.9-13.4,13.4-13.4c7.5,0,13.4,6,13.4,13.5
+                                    C53.4,32.6,47.4,38.6,39.9,38.6z M39.9,30.6c3.2,0,5.6-2.3,5.6-5.6c0-3.2-2.3-5.5-5.5-5.5c-3.2,0-5.6,2.2-5.6,5.4
+                                    C34.4,28.2,36.7,30.6,39.9,30.6z
+                                    M14.6,27c0.6-1.4,1.1-2.6,1.6-3.8c1.2-2.9,2.5-5.8,3.7-8.8c0.7-1.7,2-2.8,4-2.7c3,0,4.9,2.6,3.8,5.4
+                                    c-0.5,1.3-1.2,2.6-1.8,3.9c-2.4,5-4.9,10-7.3,15c-0.8,1.6-2,2.6-3.9,2.6c-2,0-3.3-0.8-4.2-2.6c-2.7-5.6-5.3-11.1-8-16.7
+                                    c-0.3-0.7-0.6-1.3-0.9-2c-0.8-1.8-0.3-3.7,1.1-4.8c1.5-1.2,4-1.3,5.3,0c0.7,0.6,1.2,1.5,1.6,2.3C11.3,18.8,12.9,22.7,14.6,27z
+                                    M90.9,25.1c0,3.1,0,6.2,0,9.4c0,1.9-1.2,3.4-2.9,4c-1.7,0.5-3.5,0-4.5-1.6c-0.5-0.8-0.8-1.8-0.8-2.6
+                                    c-0.1-6.1-0.1-11.3,0-17.5c0-2.2,1.5-3.9,3.5-4.2c2.1-0.3,4.1,0.9,4.7,2.9c0.1,0.5,0.2,1.1,0.2,1.6C90.9,20,90.9,22.1,90.9,25.1
+                                    C90.9,25.1,90.9,25.1,90.9,25.1z
+                                    M90.2,4.7L86,2.3c-1.3-0.8-3,0.2-3,1.7v4.8c0,1.5,1.7,2.5,3,1.7l4.2-2.4C91.5,7.4,91.5,5.5,90.2,4.7z"></path>
+                                </g>
+                            </svg>
+                        </a>
+                        <!-- End Logo -->
+                        <div class="hs-unfold">
+                            <a class="js-hs-unfold-invoker btn btn-icon btn-xs btn-soft-secondary" href="javascript:;"
+                                data-hs-unfold-options='{
+                                    "target": "#sidebarContent",
+                                    "type": "css-animation",
+                                    "animationIn": "fadeInLeft",
+                                    "animationOut": "fadeOutLeft",
+                                    "hasOverlay": "rgba(55, 125, 255, 0.1)",
+                                    "smartPositionOff": true
+                                }'>
+                                <svg width="10" height="10" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill="currentColor" d="M11.5,9.5l5-5c0.2-0.2,0.2-0.6-0.1-0.9l-1-1c-0.3-0.3-0.7-0.3-0.9-0.1l-5,5l-5-5C4.3,2.3,3.9,2.4,3.6,2.6l-1,1 C2.4,3.9,2.3,4.3,2.5,4.5l5,5l-5,5c-0.2,0.2-0.2,0.6,0.1,0.9l1,1c0.3,0.3,0.7,0.3,0.9,0.1l5-5l5,5c0.2,0.2,0.6,0.2,0.9-0.1l1-1 c0.3-0.3,0.3-0.7,0.1-0.9L11.5,9.5z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- End Toggle Button -->
+
+                    <!-- Content -->
+                    <div class="scrollbar sidebar-body">
+                        <div class="sidebar-content py-4">
+                            <!-- Sidebar Navbar -->
+                            <div class="">
+                                <div id="sidebarNavExample3" class="collapse show navbar-collapse">
+                                    <!-- Nav Link -->
+                                    <div class="sidebar-body_inner">
+                                        <div class="position-relative">
+                                            <a class="dropdown-nav-link dropdown-toggle dropdown-toggle-collapse" href="javascript:;" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="sidebarNav1Collapse" data-target="#sidebarNav1Collapse">
+                                                Create Room
+                                            </a>
+                                            <div id="sidebarNav1Collapse" class="collapse" data-parent="#sidebarNavExample3">
+                                                <div id="sidebarNav1" class="navbar-nav align-items-start flex-column">
+                                                    {% if session %}
+                                                        <a class="dropdown-item"  href={{ url_for('movie', hash_url=code) }}>Create</a>
+                                                    {% else %}
+                                                    <a class="dropdown-item font-size-14">로그인 후 이용가능합니다.</a>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="position-relative">
+                                            <a class="dropdown-nav-link dropdown-toggle dropdown-toggle-collapse" href="javascript:;" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="sidebarNav2Collapse" data-target="#sidebarNav2Collapse">
+                                                Join Room
+                                            </a>
+
+                                            <div id="sidebarNav2Collapse" class="collapse" data-parent="#sidebarNavExample3">
+                                                <div id="sidebarNav2" class="navbar-nav align-items-start flex-column">
+                                                    {% if session %}
+                                                    <a class="dropdown-item" href="javascript:;" data-toggle="modal" data-target="#codeModal">Insert Code</a>
+                                                    {% else %}
+                                                    <a class="dropdown-item font-size-14">로그인 후 이용가능합니다.</a>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Nav Link -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Sidebar Navbar -->
+                        </div>
+                    </div>
+                    <!-- End Content -->
+                </div>
+            </div>
+        </div>
+    </aside>
+    <!-- End Sidebar Navigation -->
+
+    <!-- ========== END SECONDARY CONTENTS ========== -->
+
+    <!-- Go to Top -->
+    <a class="js-go-to go-to position-fixed" href="javascript:;" style="visibility: hidden;"
+        data-hs-go-to-options='{
+            "offsetTop": 700,
+            "position": {
+                "init": {
+                    "right": 15
+                },
+                "show": {
+                    "bottom": 15
+                },
+                "hide": {
+                    "bottom": -15
+                }
+            }
+        }'>
+        <i class="fas fa-angle-up"></i>
+    </a>
+    <!-- End Go to Top -->
+
+    <!-- JS Global Compulsory -->
+    <script src="/static/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="/static/assets/vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+    <script src="/static/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS Implementing Plugins -->
+    <script src="/static/assets/vendor/hs-header/dist/hs-header.min.js"></script>
+    <script src="/static/assets/vendor/hs-go-to/dist/hs-go-to.min.js"></script>
+    <script src="/static/assets/vendor/hs-unfold/dist/hs-unfold.min.js"></script>
+    <script src="/static/assets/vendor/hs-mega-menu/dist/hs-mega-menu.min.js"></script>
+    <script src="/static/assets/vendor/hs-show-animation/dist/hs-show-animation.min.js"></script>
+    <script src="/static/assets/vendor/hs-sticky-block/dist/hs-sticky-block.min.js"></script>
+    <script src="/static/assets/vendor/hs-counter/dist/hs-counter.min.js"></script>
+    <script src="/static/assets/vendor/appear.js"></script>
+    <script src="/static/assets/vendor/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+    <script src="/static/assets/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="/static/assets/vendor/dzsparallaxer/dzsparallaxer.js"></script>
+    <script src="/static/assets/vendor/aos/dist/aos.js"></script>
+    <script src="/static/assets/vendor/slick-carousel/slick/slick.js"></script>
+    <script src="/static/assets/vendor/fancybox/dist/jquery.fancybox.min.js"></script>
+    <script src="/static/assets/vendor/select2/dist/js/select2.full.min.js"></script>
+
+    <!-- JS Vodi -->
+    <script src="/static/assets/js/hs.core.js"></script>
+    <script src="/static/assets/js/hs.validation.js"></script>
+    <script src="/static/assets/js/hs.cubeportfolio.js"></script>
+    <script src="/static/assets/js/hs.slick-carousel.js"></script>
+    <script src="/static/assets/js/hs.fancybox.js"></script>
+    <script src="/static/assets/js/hs.select2.js"></script>
+
+    <!-- JS Plugins Init. -->
+    <script>
+        $(document).on('ready', function () {
+            // initialization of header
+            var header = new HSHeader($('#header')).init();
+
+            // initialization of mega menu
+            var megaMenu = new HSMegaMenu($('.js-mega-menu'), {
+                desktop: {
+                    position: 'left'
+                }
+            }).init();
+
+            // initialization of fancybox
+            $('.js-fancybox').each(function () {
+              var fancybox = $.HSCore.components.HSFancyBox.init($(this));
+            });
+
+            // initialization of unfold
+            var unfold = new HSUnfold('.js-hs-unfold-invoker').init();
+
+
+            // initialization of slick carousel
+            $('.js-slick-carousel').each(function() {
+                var slickCarousel = $.HSCore.components.HSSlickCarousel.init($(this));
+            });
+
+            // initialization of form validation
+            $('.js-validate').each(function() {
+                $.HSCore.components.HSValidation.init($(this), {
+                    rules: {
+                        confirmPassword: {
+                            equalTo: '#signupPassword'
+                        }
+                    }
+                });
+            });
+
+            // initialization of show animations
+            $('.js-animation-link').each(function () {
+                var showAnimation = new HSShowAnimation($(this)).init();
+            });
+
+            // initialization of counter
+            $('.js-counter').each(function() {
+                var counter = new HSCounter($(this)).init();
+            });
+
+            // initialization of sticky block
+            var cbpStickyFilter = new HSStickyBlock($('#cbpStickyFilter'));
+
+            // initialization of cubeportfolio
+            $('.cbp').each(function () {
+                var cbp = $.HSCore.components.HSCubeportfolio.init($(this), {
+                    layoutMode: 'grid',
+                    filters: '#filterControls',
+                    displayTypeSpeed: 0
+                });
+            });
+
+            $('.cbp').on('initComplete.cbp', function() {
+                // update sticky block
+                cbpStickyFilter.update();
+
+                // initialization of aos
+                AOS.init({
+                    duration: 650,
+                    once: true
+                });
+            });
+
+            $('.cbp').on('filterComplete.cbp', function() {
+                // update sticky block
+                cbpStickyFilter.update();
+
+                // initialization of aos
+                AOS.init({
+                    duration: 650,
+                    once: true
+                });
+            });
+
+            $('.cbp').on('pluginResize.cbp', function() {
+                // update sticky block
+                cbpStickyFilter.update();
+            });
+
+            // animated scroll to cbp container
+            $('#cbpStickyFilter').on('click', '.cbp-filter-item', function (e) {
+                $('html, body').stop().animate({
+                    scrollTop: $('#demoExamplesSection').offset().top
+                }, 200);
+            });
+
+            // initialization of go to
+            $('.js-go-to').each(function () {
+                var goTo = new HSGoTo($(this)).init();
+            });
+
+            // initialization of select picker
+            $('.js-custom-select').each(function () {
+              var select2 = $.HSCore.components.HSSelect2.init($(this));
+            });
+        });
+    </script>
+        <!-- IE Support -->
+    <script>
+        if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) document.write('<script src="/static/assets/vendor/polifills.js"><\/script>');
+    </script>
+</body>
+</html>
+

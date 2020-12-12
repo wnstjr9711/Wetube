@@ -1,0 +1,483 @@
+/*------------------------------------
+  Slick Arrows
+------------------------------------*/
+
+.slick-arrow {
+	z-index: 1;
+	line-height: 0;
+	display: inline-block;
+	color: $slick-arrow-color;
+	background-color: $slick-arrow-bg-color;
+	width: $slick-arrow-width;
+	height: $slick-arrow-width;
+	font-size: $slick-arrow-font-size;
+	cursor: pointer;
+	transition: $slick-arrow-transition;
+
+	&:hover {
+		color: $slick-arrow-hover-color;
+		background-color: $slick-arrow-hover-bg-color;
+	}
+
+	&::before {
+		display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  width: 100%;
+	  height: 100%;
+	}
+
+	&-left {
+		left: 0;
+	}
+
+	&-right {
+		right: 0;
+	}
+}
+
+/* Primary */
+.slick-arrow-primary {
+	color: $slick-arrow-primary-color;
+	background-color: $slick-arrow-primary-bg-color;
+}
+
+/* Soft White */
+.slick-arrow-soft-white {
+	color: $slick-arrow-soft-white-color;
+	background-color: $slick-arrow-soft-white-bg-color;
+
+	&:hover {
+		color: $slick-arrow-soft-white-hover-color;
+		background-color: $slick-arrow-soft-white-hover-bg-color;
+	}
+}
+
+/* Offset */
+@include media-breakpoint-up(lg) {
+	.slick-arrow-offset {
+		&.slick-arrow-left {
+			left: -$slick-arrow-width;
+		}
+
+		&.slick-arrow-right {
+			right: -$slick-arrow-width;
+		}
+	}
+}
+
+/* Vertical Center Alignment */
+.slick-arrow-centered-y {
+	@include content-centered(false, true);
+}
+
+.u-slick {
+	position: relative;
+
+	&__tab {
+		.tab-pane:not(.active) {
+			display: block !important;
+			height: 0 !important;
+			overflow: hidden;
+			padding: 0 !important;
+		}
+
+		.tab-pane.active {
+			height: auto !important;
+		}
+	}
+}
+
+.slick-arrow-v1 {
+	background-color: transparent;
+	border:2px solid $gray-1600;
+	color: $gray-1600;
+
+	&:hover {
+		background-color: transparent;
+		color: $gray-1700;
+		border-color: $gray-1700;
+	}
+
+	&.dark {
+		border:2px solid $gray-1900;
+		color: $gray-1900;
+
+		&:hover {
+			color: $gray-1300;
+			border-color: $gray-1300;
+		}
+	}
+
+	@include media-breakpoint-down(sm) {
+		&.left {
+			bottom: -146px;
+			left: 8px;
+	    	right: auto;
+		}
+
+		&.right {
+			bottom: -146px;
+			left: 58px;
+			right: auto;
+		}
+	}
+
+	@include media-breakpoint-up(md) {
+		&.left {
+			bottom: 46px;
+	    	right: -60px;
+		}
+
+		&.right {
+			bottom: 46px;
+			right: -114px;
+		}
+	}
+
+	@include media-breakpoint-up(xl) {
+		&.left {
+			bottom: 96px;
+		}
+
+		&.right {
+			bottom: 96px;
+		}
+	}
+
+	&.left-position {
+		@include media-breakpoint-down(sm) {
+			&.left,&.right {
+				bottom: auto;
+    			top: 100px;
+			}
+		}
+
+		@include media-breakpoint-up(md) {
+			&.left {
+				bottom: 96px;
+			}
+
+			&.right {
+				bottom: 96px;
+			}
+		}
+
+		@include media-breakpoint-up(md) {
+			&.left {
+				left: 10px;
+		    	right: auto;
+			}
+
+			&.right {
+				left: 64px;
+				right: auto;
+			}
+		}
+	}
+}
+
+.slick-arrow-v2 {
+	display: inline-block;
+	font-size: 45px;
+	color: #b1b1b1;
+	cursor: pointer;
+	transition: .3s;
+	background-color: transparent;
+	width: 0;
+	height: 0;
+
+ 	&:hover {
+	 	background-color: transparent;
+	 	color: $gray-1700;
+ 	}
+}
+
+.slick-arrow-v3 {
+
+	background-color: transparent;
+	color: $gray-1900;
+	border: 2px solid $gray-1900;
+	font-size: 15px;
+
+	&:hover {
+		background-color: transparent;
+		color: $gray-1700;
+		border-color: $gray-1700;
+	}
+
+	&.left-position {
+		&.left {
+			left: 10px;
+	    	right: auto;
+		}
+
+		&.right {
+			left: 64px;
+			right: auto;
+		}
+	}
+}
+
+.slick-arrow-v4 {
+
+	background-color: transparent;
+	color: #bdc3c7;
+	border: 2px solid #bdc3c7;
+	font-size: 15px;
+
+	&:hover {
+		background-color: transparent;
+		color: $gray-1700;
+		border-color: $gray-1700;
+	}
+
+	&.left-position {
+		&.left {
+			left: 10px;
+	    	right: auto;
+		}
+
+		&.right {
+			left: 64px;
+			right: auto;
+		}
+	}
+}
+
+.slick-arrow-v5 {
+
+	background-color: transparent;
+	color: #bdc3c7;
+	border: 2px solid #bdc3c7;
+	font-size: 15px;
+
+	&:hover {
+		background-color: transparent;
+		color: $gray-1700;
+		border-color: $gray-1700;
+	}
+
+	&.left-position {
+		&.left {
+			left: 10px;
+	    	right: auto;
+		}
+
+		&.right {
+			left: 64px;
+			right: auto;
+		}
+	}
+}
+
+.slick-arrow-v6 {
+
+	background-color: transparent;
+	color: $gray-1600;
+	border: 2px solid $gray-1600;
+	font-size: 15px;
+
+	&:hover {
+		background-color: transparent;
+		color: $gray-1700;
+		border-color: $gray-1700;
+	}
+
+
+	&.left-position {
+		&.left {
+			left: 10px;
+	    	right: auto;
+		}
+
+		&.right {
+			left: 64px;
+			right: auto;
+		}
+	}
+}
+
+.slick-arrow-v7 {
+	background-color: transparent;
+	border:2px solid $gray-1600;
+	color: $gray-1600;
+
+	&:hover {
+		background-color: transparent;
+		color: $gray-1700;
+		border-color: $gray-1700;
+	}
+
+	&.dark {
+		border:2px solid $gray-1900;
+		color: $gray-1900;
+
+		&:hover {
+			color: $gray-1300;
+			border-color: $gray-1300;
+		}
+	}
+
+	@include media-breakpoint-down(sm) {
+		&.left {
+			bottom: -146px;
+			left: 8px;
+	    	right: auto;
+		}
+
+		&.right {
+			bottom: -146px;
+			left: 58px;
+			right: auto;
+		}
+	}
+
+	@include media-breakpoint-up(md) {
+		&.left {
+			bottom: 46px;
+	    	right: -60px;
+		}
+
+		&.right {
+			bottom: 46px;
+			right: -114px;
+		}
+	}
+
+	@include media-breakpoint-up(lg) {
+		&.left {
+			bottom: 46px;
+	    	right: -60px;
+	    	left: -50%;
+		}
+
+		&.right {
+			bottom: 46px;
+			right: -114px;
+			left: -40%;
+		}
+	}
+
+	@include media-breakpoint-up(xl) {
+		&.left {
+			bottom: 96px;
+			left: -33%;
+		}
+
+		&.right {
+			bottom: 96px;
+			left: -27%;
+		}
+	}
+
+	@include media-breakpoint-up(wd) {
+		&.right {
+			left: -28%;
+		}
+	}
+
+	&.left-position {
+		@include media-breakpoint-down(sm) {
+			&.left,&.right {
+				bottom: auto;
+    			top: 100px;
+			}
+		}
+
+		@include media-breakpoint-up(md) {
+			&.left {
+				bottom: 96px;
+			}
+
+			&.right {
+				bottom: 96px;
+			}
+		}
+
+		@include media-breakpoint-up(md) {
+			&.left {
+				left: 10px;
+		    	right: auto;
+			}
+
+			&.right {
+				left: 64px;
+				right: auto;
+			}
+		}
+	}
+}
+
+.slick-arrow-v11 {
+	@include media-breakpoint-up(md) {
+		&.right,
+		&.left {
+			bottom: 26px;
+		}
+	}
+}
+
+
+.slick-arrow-svg {
+	&-left,&-right {
+
+		display: inline-block;
+		background-color: transparent;
+		bottom: 40px;
+
+		&:hover {
+			background-color: transparent;
+		}
+	}
+
+	&-left {
+
+		&::before {
+			content: "";
+			background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="22" height="42" fill="rgb(177, 177, 177)"><path d="M21.988,40.588 L20.602,41.988 L0.011,21.204 L0.214,20.999 L0.011,20.795 L20.602,0.011 L21.988,1.410 L2.582,20.999 L21.988,40.588 Z"/></svg>');
+			width: 1.375rem;
+		}
+	}
+
+	&-right {
+
+		&::before {
+			content: "";
+			background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="23" height="43"><path d="M22.707,21.707 L1.707,42.707 L0.293,41.293 L20.086,21.500 L0.293,1.706 L1.707,0.292 L22.707,21.292 L22.500,21.499 L22.707,21.707 Z" fill="rgb(177, 177, 177)"/></svg>');
+			width: 1.375rem;
+			margin-left: auto;
+		}
+	}
+}
+
+.slick-arrow-svg-v1 {
+	&-left,&-right {
+
+		display: inline-block;
+		background-color: transparent;
+		bottom: 40px;
+
+		&:hover {
+			background-color: transparent;
+		}
+	}
+
+	&-left {
+
+		&::before {
+			content: "";
+			background-image: url(data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjJweCIgaGVpZ2h0PSI0M3B4Ij48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiICBmaWxsPSJyZ2IoMTEzLCAxMjcsIDE0MCkiIGQ9Ik0yMS45OTMsNDAuODU1IEwyMC42MDYsNDIuMjY0IEwwLjAxMSwyMS4zNDQgTDAuMjE0LDIxLjEzOCBMMC4wMTEsMjAuOTMxIEwyMC42MDYsMC4wMTEgTDIxLjk5MywxLjQxOSBMMi41ODIsMjEuMTM3IEwyMS45OTMsNDAuODU1IFoiLz48L3N2Zz4=);
+			width: 1.375rem;
+		}
+	}
+
+	&-right {
+
+		&::before {
+			content: "";
+			background-image: url(data:image/svg+xml;utf8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjNweCIgaGVpZ2h0PSI0M3B4Ij48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiICBmaWxsPSJyZ2IoMTEzLCAxMjcsIDE0MCkiIGQ9Ik0yMi45ODgsMjEuODUwIEwxLjk4NCw0Mi45ODggTDAuNTcwLDQxLjU2NCBMMjAuMzY2LDIxLjY0MSBMMC41NzAsMS43MTcgTDEuOTg0LDAuMjk0IEwyMi45ODgsMjEuNDMyIEwyMi43ODEsMjEuNjQxIEwyMi45ODgsMjEuODUwIFoiLz48L3N2Zz4=);
+			width: 1.375rem;
+		}
+	}
+}

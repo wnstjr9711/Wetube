@@ -1,0 +1,71 @@
+/*------------------------------------
+Form
+------------------------------------*/
+
+.input-group {
+    .input-group-prepend,
+    .input-group-append {
+        z-index: $input-addon-z-index;
+    }
+}
+
+.custom-select:focus,
+.form-control:focus {
+    box-shadow: $input-focus-box-shadow;
+}
+
+.input-group-text {
+    border-color: $input-group-text-border-color;
+}
+
+/* Input Label */
+.input-label {
+    display: block;
+    color: $input-label-color;
+    font-size: $input-label-font-size;
+}
+
+/* Form Borderless */
+.input-group-borderless {
+    .form-control,
+    .input-group-text {
+        border: none;
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+}
+
+.search-form-control {
+    height: 2.375rem;
+    
+    @include media-breakpoint-up(wd) {
+        min-width: 15.625rem !important;
+    }
+
+
+    &:focus {
+        box-shadow: 0 0 0 1px $primary;
+        border-color: $primary;
+    }
+}
+
+.vodi-select + .select2 .custom-select {
+    font-family: $font-family-secondary;
+    background: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='%2371869d' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.72,15.78a.75.75,0,0,1-.53.22h-.38a.77.77,0,0,1-.53-.22L6.15,10.64a.5.5,0,0,1,0-.71l.71-.71a.49.49,0,0,1,.7,0L12,13.67l4.44-4.45a.5.5,0,0,1,.71,0l.7.71a.5.5,0,0,1,0,.71Z'/%3E%3C/svg%3E") no-repeat right 0.5rem center/1rem 1rem;
+    padding: 0.70275rem 5.937rem 0.70275rem 2.6rem;
+    border-color: transparent;
+
+    &:focus {
+        box-shadow: none;
+        border-color: $primary;
+    }
+}
+
+
+.dropdown-toggle.remove {
+    &::after {
+        display: none;
+    }
+}

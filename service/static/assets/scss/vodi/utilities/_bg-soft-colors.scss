@@ -1,0 +1,237 @@
+/*------------------------------------
+  Background Soft Colors
+------------------------------------*/
+
+@each $color, $value in $theme-colors {
+  .bg-soft-#{$color} {
+    background-color: rgba($value, .1);
+  }
+}
+
+.bg-white-d-lg {
+    @include media-breakpoint-down(xl) {
+        background-color: $white;
+    }
+}
+
+.bg-gray-1000 {
+    background-color: $gray-1000;
+}
+
+.bg-gray-1100 {
+    background-color: $gray-1100;
+}
+
+.bg-gray-1500 {
+    background-color: $gray-1500;
+}
+
+.bg-gray-2000 {
+    background-color: $gray-2000;
+}
+
+.bg-gray-2200 {
+    background-color: $gray-2200;
+}
+
+.bg-gray-2300 {
+    background-color: $gray-2300;
+}
+
+.bg-gray-2400 {
+    background-color: $gray-2400;
+}
+
+.bg-gray-2500 {
+    background-color: $gray-2500;
+}
+
+.bg-gray-2600 {
+    background-color: $gray-2600;
+}
+
+.bg-gray-2700 {
+    background-color: $gray-2700;
+}
+
+.bg-gray-2800 {
+    background-color: $gray-2800;
+}
+
+.bg-gray-3100 {
+    background-color: $gray-3100;
+}
+
+.bg-gray-3500 {
+    background-color: $gray-3500;
+}
+
+.bg-gray-4000 {
+    background-color: $gray-4000;
+}
+
+.bg-gray-3800 {
+    background-color: $gray-3800;
+}
+
+.bg-gray-4300 {
+    background-color: $gray-4300;
+}
+
+.bg-gray-4500 {
+    background-color: $gray-4500;
+}
+
+.bg-gray-4900 {
+    background-color: $gray-4900;
+}
+
+.bg-gray-5100 {
+    background-color: $gray-5100;
+}
+
+.bg-gray-6700 {
+    background-color: $gray-6700;
+}
+
+.bg-gray-6820 {
+    background-color: $gray-6820;
+}
+
+.bg-red-2 {
+    background-color: $red-2;
+}
+
+.bg-royal-blue {
+    background-color: $royal-blue;
+}
+
+.table-h-bg {
+    &:hover {
+        background: #2e3544;
+    }
+}
+
+.bg-blue-1 {
+    background-color: $blue-1;
+}
+
+.bg-dark-1 {
+    background-color: $dark-1;
+}
+
+.section-hot-premier-show {
+
+  .movie_poster {
+
+    &::before {
+      background: linear-gradient(to bottom,rgba(240,47,23,0) 50%,rgba(0,0,0,.7) 100%);
+      content: "";
+      height: 100%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
+
+.bg-gradient__1 {
+
+  &::after {
+    position: absolute;
+    content: '';
+    background-image: linear-gradient(0deg,#000 0,rgba(0,0,0,.4) 40%,rgba(0,0,0,.1) 70%,rgba(0,0,0,0) 90%);
+    display: block;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+}
+
+.h-bg-1 {
+
+    li {
+        &:hover {
+            background-color: #eff0f2;
+            transition: .3s all;
+        }
+    }
+
+    &-dark {
+        li {
+            &:hover {
+                background-color: #252a37;
+                transition: .3s all;
+            }
+        }
+    }
+}
+
+.sidebar-area {
+    &::before {
+        position: absolute;
+        content: " ";
+        display: block;
+        height: 100%;
+        width: 100%;
+        right: 100%;
+        background-color: $gray-1000;
+        margin-top: -40px;
+    }
+
+    &-dark {
+        &::before {
+            position: absolute;
+            content: " ";
+            display: block;
+            height: 100%;
+            width: 100%;
+            right: 100%;
+            background-color: $gray-3100;
+            margin-top: -40px;
+        }
+    }
+}
+
+.h-bg-2 {
+    &:hover {
+        background-color: $primary;
+        transition: all .3s ease-in-out;
+
+        span {
+            color: $dark;
+        }
+    }
+}
+
+
+.breadcrumb-bg {
+    @include media-breakpoint-up(lg) {
+
+        &::after {
+            content: '';
+            position: absolute;
+            display: block;
+            left: calc(-50vw + 50% - 8px);
+            top: 100%;
+            width: 100%;
+            height: 242px;
+            background: radial-gradient(farthest-corner at 46% 0%,#31394b 2%,rgba(33,38,53,0.57) 37%,rgba(160,162,168,0) 72%,rgba(255,255,255,0) 100%);
+        }
+    }
+}
+
+.bg-single-player {
+    &::after {
+        position: absolute;
+        content: '';
+        background-image: url(../../assets/img/360x200/img1.png);
+        display: block;
+        bottom: 0;
+        margin-left: calc(-50vw + 50% - 8px);
+        width: 100vw;
+        height: 148px;
+    }
+}

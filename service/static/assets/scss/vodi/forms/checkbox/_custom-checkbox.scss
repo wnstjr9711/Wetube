@@ -1,0 +1,34 @@
+/*------------------------------------
+  Custom Checkbox
+------------------------------------*/
+
+.custom-checkbox {
+  .custom-control-input:disabled {
+    &:checked ~ .custom-control-label::before {
+      border-color: $custom-control-indicator-checked-disabled-border;
+    }
+  }
+
+    .custom-control-label {
+
+        &::before {
+	        border-radius: 0;
+            border: 2px solid $custom-control-indicator-border-color;
+        }
+    }
+
+    .custom-control-label-custom {
+
+        &::before,&::after {
+            background-color: $gray-3100;
+            border: 2px solid;
+        }
+    }
+
+   .custom-control-label_custom {
+        &::before,&::after {
+            right: -1.5rem;
+            left: unset;
+        }
+    } 
+}

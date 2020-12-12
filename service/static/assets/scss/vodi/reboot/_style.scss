@@ -1,0 +1,84 @@
+/*------------------------------------
+  Default Styles
+------------------------------------*/
+
+main {
+  position: relative;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  color: $headings-color;
+  font-family: $font-family-secondary;
+}
+
+figure {
+  margin-bottom: 0;
+}
+
+svg {
+  margin-bottom: $svg-negative-margin-bottom;
+  vertical-align: baseline;
+}
+
+sup {
+  right: -.5rem;
+}
+
+table th {
+  font-weight: $table-th-font-weight;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+}
+
+iframe {
+    border: 0 !important;
+}
+
+/*------------------------------------
+  Highlight Color
+------------------------------------*/
+
+::-moz-selection {
+  color: $white;
+  background-color: $primary;
+}
+
+::selection {
+  color: $white;
+  background-color: $primary;
+}
+
+.bg-primary ::-moz-selection {
+  color: $primary;
+  background-color: $white;
+}
+
+.bg-primary ::selection {
+  color: $primary;
+  background-color: $white;
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}
+
+.home-v5 {
+    @include media-breakpoint-up(xl) {
+        .container,
+        .container-fluid {
+            max-width: 1776px;
+        }
+    }
+}
+
+.fluid-header {
+    @include media-breakpoint-up(xl) {
+        &.container,
+        &.container-fluid {
+            max-width: 1776px;
+        }
+    }
+}

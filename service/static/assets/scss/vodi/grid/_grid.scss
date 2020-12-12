@@ -1,0 +1,35 @@
+/*------------------------------------
+  Grid
+------------------------------------*/
+
+.container,
+.container-fluid {
+    @media (min-width: 1340px) {
+        max-width: 1340px;
+    }
+
+    @media (min-width: 1440px) {
+        max-width: 1440px;
+    }
+
+    @media (min-width: 1486px) {
+        max-width: 1486px;
+    }
+}
+
+.docs .container,
+.docs .container-fluid,
+.snippets .container,
+.snippets .container-fluid {
+    @media (min-width: 1340px) {
+        max-width: 100%;
+    }
+
+    @media (min-width: 1440px) {
+        max-width: 100%;
+    }
+
+    @media (min-width: 1486px) {
+        max-width: 100%;
+    }
+}

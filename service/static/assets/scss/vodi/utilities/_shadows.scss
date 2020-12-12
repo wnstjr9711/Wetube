@@ -1,0 +1,19 @@
+/*------------------------------------
+Box Shadow
+------------------------------------*/
+
+.shadow-primary-lg {
+	box-shadow: $box-shadow-primary-lg !important;
+}
+
+.shadow-soft {
+	box-shadow: $box-shadow-soft !important;
+}
+
+.shadow-1 {
+    box-shadow: 4px 25px 37px #858585;
+}
+
+.shadow-2 {
+	box-shadow: 0 0 9px rgba(0,0,0,.25);	
+}
