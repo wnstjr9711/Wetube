@@ -1,2 +1,1 @@
-# ServiceOriented
-Wetube.Zip file for AWS Elastic Beanstalk
+# Wetube.Zip file for AWS Elastic Beanstalk
