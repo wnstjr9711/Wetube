@@ -4,7 +4,7 @@ import pymysql
 
 def connect():
     db = pymysql.connect(host='database-2.ckxupymlkkbs.ap-northeast-2.rds.amazonaws.com', port=3306, user='root',
-                         passwd='kjs97871103', db='service', charset='utf8',
+                         passwd='', db='service', charset='utf8',
                          autocommit=True)
     return db
 
